@@ -29,7 +29,7 @@ const LOOP_STEPS = [
   {
     id: "primitive",
     label: "Primitive",
-    description: "Which knob to turn",
+    description: "Which lever to pull",
     detail:
       "Map the diagnosis to a primitive: observability, instructions, tools, guardrails, or verification. Pick the smallest fix that closes the gap.",
     questions: [

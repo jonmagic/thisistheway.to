@@ -71,7 +71,7 @@ export function AILayout({ children, title, subtitle, isIndex = false }: AILayou
 
             <article class="prose-container">{children}</article>
 
-            <Footer />
+            <Footer llmsTxtPath="/ai/llms.txt" />
           </main>
 
           {/* Right rail - hidden on mobile */}

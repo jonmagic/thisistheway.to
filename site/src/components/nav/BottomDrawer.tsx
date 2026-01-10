@@ -12,7 +12,7 @@ const NAV_ITEMS = [
 const LOOP_STEPS = [
   { id: "miss", label: "Miss", description: "Capture what went wrong" },
   { id: "diagnosis", label: "Diagnosis", description: "What didn't it see?" },
-  { id: "primitive", label: "Primitive", description: "Which knob to turn" },
+  { id: "primitive", label: "Primitive", description: "Which lever to pull" },
   { id: "artifact", label: "Artifact", description: "Encode the fix" },
   { id: "gate", label: "Gate", description: "Enforce when ready" },
 ];

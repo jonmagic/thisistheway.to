@@ -1,0 +1,9 @@
+# ThisIsTheWay.to
+
+> Best practice guides for building a career in software development.
+
+ThisIsTheWay.to is a collection of opinionated guides on various software and career development topics.
+
+## Guides
+
+- [Build with AI Agents](https://thisistheway.to/ai/llms.txt): Turning agent misses into systemic improvements

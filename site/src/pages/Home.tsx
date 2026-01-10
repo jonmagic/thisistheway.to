@@ -1,3 +1,5 @@
+import { Footer } from "@/components/Footer";
+
 export function Home() {
   return (
     <main class="min-h-screen bg-white dark:bg-slate-900 transition-colors">
@@ -13,6 +15,7 @@ export function Home() {
             Build with AI Agents →
           </a>
         </nav>
+        <Footer />
       </div>
     </main>
   );

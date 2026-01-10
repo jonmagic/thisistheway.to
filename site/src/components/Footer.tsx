@@ -1,29 +1,33 @@
+interface FooterProps {
+  llmsTxtPath?: string;
+}
+
 /**
  * Footer with author attribution and links
  */
-export function Footer() {
+export function Footer({ llmsTxtPath = "/llms.txt" }: FooterProps) {
   return (
     <footer class="border-t border-slate-200 dark:border-slate-800 mt-16 py-8">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500 dark:text-slate-400">
         <div class="flex items-center gap-3">
           <a
-            href="https://github.com/jonmagic"
+            href="https://jonmagic.com"
             class="flex items-center gap-2 hover:text-blueprint-500 dark:hover:text-blueprint-400 transition-colors"
           >
             <img
               src="https://github.com/jonmagic.png"
-              alt="Jonathan Hoyt"
+              alt="jonmagic"
               class="w-8 h-8 rounded-full"
               width="32"
               height="32"
             />
-            <span>Jonathan Hoyt</span>
+            <span>jonmagic.com</span>
           </a>
         </div>
 
         <div class="flex items-center gap-4">
           <a
-            href="https://thisistheway.to/ai/llms.txt"
+            href={`https://thisistheway.to${llmsTxtPath}`}
             class="hover:text-blueprint-500 dark:hover:text-blueprint-400 transition-colors"
           >
             llms.txt
