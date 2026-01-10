@@ -3,7 +3,15 @@ import preact from "@preact/preset-vite";
 import { resolve } from "path";
 
 export default defineConfig({
-  plugins: [preact()],
+  plugins: [
+    preact({
+      prerender: {
+        enabled: true,
+        renderTarget: "#app",
+        additionalPrerenderRoutes: ["/404"],
+      },
+    }),
+  ],
   resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),

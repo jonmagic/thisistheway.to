@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(gh run list:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(timeout:*)"
     ]
   }
 }

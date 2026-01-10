@@ -1,14 +1,22 @@
+import { LocationProvider, Router, Route } from "preact-iso";
+import { Home } from "@/pages/Home";
+import { NotFound } from "@/pages/NotFound";
+import { AIIndex } from "@/pages/ai/index";
+import { AIPrimitives } from "@/pages/ai/primitives";
+import { AIMissTaxonomy } from "@/pages/ai/miss-taxonomy";
+import { AIGraduation } from "@/pages/ai/graduation";
+
 export function App() {
   return (
-    <main class="min-h-screen bg-white dark:bg-slate-900 transition-colors">
-      <div class="max-w-prose mx-auto px-6 py-16">
-        <h1 class="text-4xl font-bold tracking-tight text-blueprint-500 dark:text-blueprint-400">
-          This Is The Way
-        </h1>
-        <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">
-          To build the future.
-        </p>
-      </div>
-    </main>
+    <LocationProvider>
+      <Router>
+        <Route path="/" component={Home} />
+        <Route path="/ai" component={AIIndex} />
+        <Route path="/ai/primitives" component={AIPrimitives} />
+        <Route path="/ai/miss-taxonomy" component={AIMissTaxonomy} />
+        <Route path="/ai/graduation" component={AIGraduation} />
+        <Route default component={NotFound} />
+      </Router>
+    </LocationProvider>
   );
 }
