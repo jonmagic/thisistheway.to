@@ -1,11 +1,67 @@
+import { useSignal } from "@preact/signals";
 import { cn } from "@/lib/utils";
 
 const LOOP_STEPS = [
-  { id: "miss", label: "Miss", description: "Capture what went wrong" },
-  { id: "diagnosis", label: "Diagnosis", description: "What didn't it see?" },
-  { id: "primitive", label: "Primitive", description: "Which knob to turn" },
-  { id: "artifact", label: "Artifact", description: "Encode the fix" },
-  { id: "gate", label: "Gate", description: "Enforce when ready" },
+  {
+    id: "miss",
+    label: "Miss",
+    description: "Capture what went wrong",
+    detail:
+      "What did the agent do? What did it claim? What did reality say? Be specific—vague descriptions lead to vague fixes.",
+    questions: [
+      "What was the expected behavior?",
+      "What actually happened?",
+      "Can you reproduce it?",
+    ],
+  },
+  {
+    id: "diagnosis",
+    label: "Diagnosis",
+    description: "What didn't it see?",
+    detail:
+      "The agent missed because something was invisible to it. Figure out what: missing data, missing constraint, missing feedback, or missing boundaries.",
+    questions: [
+      "Was the source of truth accessible?",
+      "Did it know what 'good' looks like?",
+      "Was there a way to verify correctness?",
+    ],
+  },
+  {
+    id: "primitive",
+    label: "Primitive",
+    description: "Which knob to turn",
+    detail:
+      "Map the diagnosis to a primitive: observability, instructions, tools, guardrails, or verification. Pick the smallest fix that closes the gap.",
+    questions: [
+      "Is this an observability problem?",
+      "Is this an instructions problem?",
+      "Is this a verification problem?",
+    ],
+  },
+  {
+    id: "artifact",
+    label: "Artifact",
+    description: "Encode the fix",
+    detail:
+      "Turn the fix into something version-controlled and repeatable. Not a memory, not a habit—an artifact that future-you won't have to remember.",
+    questions: [
+      "Can this be a file in the repo?",
+      "Will it survive team changes?",
+      "Is it discoverable by the agent?",
+    ],
+  },
+  {
+    id: "gate",
+    label: "Gate",
+    description: "Enforce when ready",
+    detail:
+      "When a fix is high-value and automatable, promote it from guidance to enforcement. Start advisory, graduate to blocking.",
+    questions: [
+      "Is this worth enforcing?",
+      "Can it run in CI?",
+      "Is the failure message actionable?",
+    ],
+  },
 ] as const;
 
 type StepId = (typeof LOOP_STEPS)[number]["id"];
@@ -22,12 +78,15 @@ interface LoopNavigatorProps {
 /**
  * Visual stepper showing the improvement loop:
  * Miss → Diagnosis → Primitive → Artifact → Gate
+ * Click any step to expand details about that stage.
  */
 export function LoopNavigator({
   currentStep,
   completedSteps = [],
   compact = false,
 }: LoopNavigatorProps) {
+  const expandedStep = useSignal<StepId | null>(null);
+
   if (compact) {
     return (
       <ol class="space-y-1.5">
@@ -40,7 +99,8 @@ export function LoopNavigator({
               key={step.id}
               class={cn(
                 "flex items-center gap-2 text-xs",
-                isCurrent && "text-blueprint-500 dark:text-blueprint-400 font-medium",
+                isCurrent &&
+                  "text-blueprint-500 dark:text-blueprint-400 font-medium",
                 isCompleted && "text-signal-600 dark:text-signal-400",
                 !isCurrent && !isCompleted && "text-slate-500 dark:text-slate-500"
               )}
@@ -48,8 +108,10 @@ export function LoopNavigator({
               <span
                 class={cn(
                   "w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-medium",
-                  isCurrent && "bg-blueprint-100 dark:bg-blueprint-900/50 text-blueprint-600 dark:text-blueprint-400",
-                  isCompleted && "bg-signal-100 dark:bg-signal-900/50 text-signal-600 dark:text-signal-400",
+                  isCurrent &&
+                    "bg-blueprint-100 dark:bg-blueprint-900/50 text-blueprint-600 dark:text-blueprint-400",
+                  isCompleted &&
+                    "bg-signal-100 dark:bg-signal-900/50 text-signal-600 dark:text-signal-400",
                   !isCurrent && !isCompleted && "bg-slate-100 dark:bg-slate-800"
                 )}
               >
@@ -64,49 +126,118 @@ export function LoopNavigator({
   }
 
   return (
-    <nav class="my-8 p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-200 dark:border-slate-700">
-      <ol class="flex items-center justify-between">
-        {LOOP_STEPS.map((step, index) => {
-          const isCompleted = completedSteps.includes(step.id);
-          const isCurrent = currentStep === step.id;
+    <nav class="my-8 rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden">
+      {/* Step indicators */}
+      <div class="p-4 bg-slate-50 dark:bg-slate-800/50">
+        <ol class="flex items-center justify-between">
+          {LOOP_STEPS.map((step, index) => {
+            const isCompleted = completedSteps.includes(step.id);
+            const isCurrent = currentStep === step.id;
+            const isExpanded = expandedStep.value === step.id;
 
-          return (
-            <li key={step.id} class="flex items-center flex-1 last:flex-none">
-              <div class="flex flex-col items-center text-center">
-                <span
-                  class={cn(
-                    "w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium mb-1",
-                    isCurrent && "bg-blueprint-500 text-white",
-                    isCompleted && "bg-signal-500 text-white",
-                    !isCurrent && !isCompleted && "bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400"
-                  )}
+            return (
+              <li key={step.id} class="flex items-center flex-1 last:flex-none">
+                <button
+                  type="button"
+                  onClick={() =>
+                    (expandedStep.value =
+                      expandedStep.value === step.id ? null : step.id)
+                  }
+                  class="flex flex-col items-center text-center group"
                 >
-                  {isCompleted ? "✓" : index + 1}
-                </span>
-                <span
-                  class={cn(
-                    "text-xs font-medium",
-                    isCurrent && "text-blueprint-600 dark:text-blueprint-400",
-                    isCompleted && "text-signal-600 dark:text-signal-400",
-                    !isCurrent && !isCompleted && "text-slate-600 dark:text-slate-400"
-                  )}
+                  <span
+                    class={cn(
+                      "w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium mb-1 transition-all",
+                      "group-hover:ring-2 group-hover:ring-blueprint-300 dark:group-hover:ring-blueprint-600",
+                      isExpanded && "ring-2 ring-blueprint-500 dark:ring-blueprint-400",
+                      isCurrent && "bg-blueprint-500 text-white",
+                      isCompleted && "bg-signal-500 text-white",
+                      !isCurrent &&
+                        !isCompleted &&
+                        "bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400"
+                    )}
+                  >
+                    {isCompleted ? "✓" : index + 1}
+                  </span>
+                  <span
+                    class={cn(
+                      "text-xs font-medium transition-colors",
+                      isExpanded && "text-blueprint-600 dark:text-blueprint-400",
+                      isCurrent &&
+                        !isExpanded &&
+                        "text-blueprint-600 dark:text-blueprint-400",
+                      isCompleted &&
+                        !isExpanded &&
+                        "text-signal-600 dark:text-signal-400",
+                      !isCurrent &&
+                        !isCompleted &&
+                        !isExpanded &&
+                        "text-slate-600 dark:text-slate-400 group-hover:text-blueprint-600 dark:group-hover:text-blueprint-400"
+                    )}
+                  >
+                    {step.label}
+                  </span>
+                </button>
+                {index < LOOP_STEPS.length - 1 && (
+                  <div
+                    class={cn(
+                      "flex-1 h-0.5 mx-2",
+                      isCompleted
+                        ? "bg-signal-300 dark:bg-signal-700"
+                        : "bg-slate-300 dark:bg-slate-600"
+                    )}
+                    aria-hidden="true"
+                  />
+                )}
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+
+      {/* Expanded detail panel */}
+      {expandedStep.value && (
+        <div class="p-4 border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
+          {LOOP_STEPS.filter((s) => s.id === expandedStep.value).map((step) => (
+            <div key={step.id}>
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h4 class="font-semibold text-slate-900 dark:text-white">
+                    {step.label}
+                  </h4>
+                  <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">
+                    {step.detail}
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => (expandedStep.value = null)}
+                  class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 p-1"
+                  aria-label="Close"
                 >
-                  {step.label}
-                </span>
+                  ✕
+                </button>
               </div>
-              {index < LOOP_STEPS.length - 1 && (
-                <div
-                  class={cn(
-                    "flex-1 h-0.5 mx-2",
-                    isCompleted ? "bg-signal-300 dark:bg-signal-700" : "bg-slate-300 dark:bg-slate-600"
-                  )}
-                  aria-hidden="true"
-                />
-              )}
-            </li>
-          );
-        })}
-      </ol>
+              <div class="mt-4">
+                <p class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">
+                  Key Questions
+                </p>
+                <ul class="space-y-1">
+                  {step.questions.map((q) => (
+                    <li
+                      key={q}
+                      class="text-sm text-slate-700 dark:text-slate-300 flex items-start gap-2"
+                    >
+                      <span class="text-blueprint-500">?</span>
+                      {q}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </nav>
   );
 }
