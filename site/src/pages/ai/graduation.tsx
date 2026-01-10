@@ -1,6 +1,7 @@
 import { AILayout } from "@/layouts/AILayout";
 import { Section } from "@/components/content/Section";
 import { Callout } from "@/components/content/Callout";
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { GraduationRubric } from "@/components/widgets/GraduationRubric";
 
 export function AIGraduation() {
@@ -89,6 +90,25 @@ export function AIGraduation() {
           </p>
         </Callout>
       </Section>
+
+      <RelatedLinks
+        links={[
+          {
+            href: "https://jonmagic.com/posts/turning-agent-misses-into-systemic-improvements/#what-i-learned",
+            title: "What I Learned",
+            source: "jonmagic.com",
+            description:
+              "Lessons from promoting improvements to gates in practice.",
+          },
+          {
+            href: "/ai/miss-taxonomy",
+            title: "Miss Taxonomy",
+            source: "thisistheway.to",
+            description:
+              "Understand the failure patterns before deciding what to gate.",
+          },
+        ]}
+      />
     </AILayout>
   );
 }

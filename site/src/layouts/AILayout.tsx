@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { ReadingProgress } from "@/components/nav/ReadingProgress";
 import { LoopNavigator } from "@/components/nav/LoopNavigator";
 import { BottomDrawer } from "@/components/nav/BottomDrawer";
+import { Footer } from "@/components/Footer";
 
 interface AILayoutProps {
   children: ComponentChildren;
@@ -55,6 +56,8 @@ export function AILayout({ children, title, subtitle }: AILayoutProps) {
             </header>
 
             <article class="prose-container">{children}</article>
+
+            <Footer />
           </main>
 
           {/* Right rail - hidden on mobile */}

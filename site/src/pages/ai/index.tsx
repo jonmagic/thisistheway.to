@@ -1,6 +1,7 @@
 import { AILayout } from "@/layouts/AILayout";
 import { Callout } from "@/components/content/Callout";
 import { Section } from "@/components/content/Section";
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { LoopNavigator } from "@/components/nav/LoopNavigator";
 
 export function AIIndex() {
@@ -89,6 +90,25 @@ export function AIIndex() {
           </li>
         </ul>
       </Section>
+
+      <RelatedLinks
+        links={[
+          {
+            href: "https://jonmagic.com/posts/turning-agent-misses-into-systemic-improvements/#the-shift",
+            title: "The Shift: From Bug Fixes to System Design",
+            source: "jonmagic.com",
+            description:
+              "The original essay that inspired this framework—with concrete examples from production.",
+          },
+          {
+            href: "https://agentconfig.org",
+            title: "Agent Config Reference",
+            source: "agentconfig.org",
+            description:
+              "Where configuration files live across different AI coding assistants.",
+          },
+        ]}
+      />
     </AILayout>
   );
 }
