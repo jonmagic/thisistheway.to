@@ -122,18 +122,14 @@ export function AIMissTaxonomy() {
       <RelatedLinks
         links={[
           {
-            href: "https://jonmagic.com/posts/turning-agent-misses-into-systemic-improvements/#turning-misses-into-hits",
-            title: "Turning Misses into Hits",
+            href: "https://jonmagic.com/posts/turning-agent-misses-into-systemic-improvements/",
+            title: "Turning Agent Misses into Systemic Improvements",
             source: "jonmagic.com",
-            description:
-              "Concrete examples of each miss type from real production incidents.",
           },
           {
             href: "/ai/primitives",
             title: "Primitives",
             source: "thisistheway.to",
-            description:
-              "The five knobs you can turn to address each type of miss.",
           },
         ]}
       />

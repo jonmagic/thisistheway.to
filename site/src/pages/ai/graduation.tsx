@@ -94,18 +94,14 @@ export function AIGraduation() {
       <RelatedLinks
         links={[
           {
-            href: "https://jonmagic.com/posts/turning-agent-misses-into-systemic-improvements/#what-i-learned",
-            title: "What I Learned",
+            href: "https://jonmagic.com/posts/turning-agent-misses-into-systemic-improvements/",
+            title: "Turning Agent Misses into Systemic Improvements",
             source: "jonmagic.com",
-            description:
-              "Lessons from promoting improvements to gates in practice.",
           },
           {
             href: "/ai/miss-taxonomy",
             title: "Miss Taxonomy",
             source: "thisistheway.to",
-            description:
-              "Understand the failure patterns before deciding what to gate.",
           },
         ]}
       />

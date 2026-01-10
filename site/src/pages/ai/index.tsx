@@ -94,18 +94,14 @@ export function AIIndex() {
       <RelatedLinks
         links={[
           {
-            href: "https://jonmagic.com/posts/turning-agent-misses-into-systemic-improvements/#the-shift",
-            title: "The Shift: From Bug Fixes to System Design",
+            href: "https://jonmagic.com/posts/turning-agent-misses-into-systemic-improvements/",
+            title: "Turning Agent Misses into Systemic Improvements",
             source: "jonmagic.com",
-            description:
-              "The original essay that inspired this framework—with concrete examples from production.",
           },
           {
             href: "https://agentconfig.org",
             title: "Agent Config Reference",
             source: "agentconfig.org",
-            description:
-              "Where configuration files live across different AI coding assistants.",
           },
         ]}
       />

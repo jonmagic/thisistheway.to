@@ -1,7 +1,6 @@
 interface RelatedLink {
   href: string;
   title: string;
-  description: string;
   source: string;
 }
 
@@ -33,9 +32,6 @@ export function RelatedLinks({ links }: RelatedLinksProps) {
               <span class="text-slate-400 dark:text-slate-500 text-sm ml-2">
                 — {link.source}
               </span>
-              <p class="text-sm text-slate-600 dark:text-slate-400 mt-0.5">
-                {link.description}
-              </p>
             </a>
           </li>
         ))}
