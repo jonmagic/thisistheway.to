@@ -1,4 +1,6 @@
 import { AILayout } from "@/layouts/AILayout";
+import { Callout } from "@/components/content/Callout";
+import { Section } from "@/components/content/Section";
 
 export function AIIndex() {
   return (
@@ -6,7 +8,7 @@ export function AIIndex() {
       title="Building with AI Agents"
       subtitle="Turning misses into systemic improvements"
     >
-      <section>
+      <Section id="improvement-loop">
         <h2>The Improvement Loop</h2>
         <p>
           Every agent miss is a learning opportunity. The goal isn't to prevent
@@ -19,11 +21,21 @@ export function AIIndex() {
         </p>
         <p>
           So the job isn't to write the perfect prompt. The job is to{" "}
-          <strong>design an environment where the easiest path is the correct one</strong>.
+          <strong>
+            design an environment where the easiest path is the correct one
+          </strong>
+          .
         </p>
-      </section>
 
-      <section>
+        <Callout variant="field-note">
+          <p>
+            The best teams treat agent failures like production incidents—worthy
+            of postmortems and systemic fixes, not just quick patches.
+          </p>
+        </Callout>
+      </Section>
+
+      <Section id="the-loop">
         <h2>The Loop</h2>
         <p>When something goes wrong, the response pattern is:</p>
         <ol>
@@ -48,22 +60,31 @@ export function AIIndex() {
             a gate.
           </li>
         </ol>
-      </section>
 
-      <section>
+        <Callout variant="gate-candidate">
+          <p>
+            If you've fixed the same class of miss twice this week, it's time to
+            consider making it a gate.
+          </p>
+        </Callout>
+      </Section>
+
+      <Section id="explore">
         <h2>Explore the Framework</h2>
         <ul>
           <li>
             <a href="/ai/primitives">Primitives</a> — The five knobs you can turn
           </li>
           <li>
-            <a href="/ai/miss-taxonomy">Miss Taxonomy</a> — Common failure patterns
+            <a href="/ai/miss-taxonomy">Miss Taxonomy</a> — Common failure
+            patterns
           </li>
           <li>
-            <a href="/ai/graduation">Graduation</a> — When guidance becomes enforcement
+            <a href="/ai/graduation">Graduation</a> — When guidance becomes
+            enforcement
           </li>
         </ul>
-      </section>
+      </Section>
     </AILayout>
   );
 }
