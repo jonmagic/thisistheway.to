@@ -1,6 +1,7 @@
 import { AILayout } from "@/layouts/AILayout";
 import { Callout } from "@/components/content/Callout";
 import { Section } from "@/components/content/Section";
+import { LoopNavigator } from "@/components/nav/LoopNavigator";
 
 export function AIIndex() {
   return (
@@ -38,6 +39,9 @@ export function AIIndex() {
       <Section id="the-loop">
         <h2>The Loop</h2>
         <p>When something goes wrong, the response pattern is:</p>
+
+        <LoopNavigator />
+
         <ol>
           <li>
             <strong>Capture the miss</strong> — What did the agent do? What did
