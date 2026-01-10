@@ -3,6 +3,7 @@ import { useLocation } from "preact-iso";
 import { cn } from "@/lib/utils";
 import { ReadingProgress } from "@/components/nav/ReadingProgress";
 import { LoopNavigator } from "@/components/nav/LoopNavigator";
+import { BottomDrawer } from "@/components/nav/BottomDrawer";
 
 interface AILayoutProps {
   children: ComponentChildren;
@@ -93,6 +94,9 @@ export function AILayout({ children, title, subtitle }: AILayoutProps) {
           </aside>
         </div>
       </div>
+
+      {/* Mobile navigation drawer */}
+      <BottomDrawer />
     </div>
   );
 }
