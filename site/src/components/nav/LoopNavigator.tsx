@@ -144,72 +144,85 @@ export function LoopNavigator({
 
   return (
     <nav class="my-8 rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden">
-      {/* Step indicators */}
-      <div class="p-4 bg-slate-50 dark:bg-slate-800/50">
-        <ol class="flex items-center justify-between">
-          {LOOP_STEPS.map((step, index) => {
-            const isCompleted = completedSteps.includes(step.id);
-            const isCurrent = currentStep === step.id;
-            const isExpanded = expandedStep.value === step.id;
+      <div class="bg-slate-50 dark:bg-slate-800/50">
+        <div class="pt-9 pb-1">
+          <ol class="relative m-0 p-0 list-none h-14">
+            <div
+              class="absolute h-px bg-slate-300 dark:bg-slate-600"
+              style={{
+                top: "14px",
+                left: "calc(16.6667% + 14px)",
+                right: "calc(16.6667% + 14px)",
+              }}
+              aria-hidden="true"
+            />
 
-            return (
-              <li key={step.id} class="flex items-center flex-1 last:flex-none">
-                <button
-                  type="button"
-                  onClick={() =>
-                    (expandedStep.value =
-                      expandedStep.value === step.id ? null : step.id)
-                  }
-                  class="flex flex-col items-center text-center group"
+            {LOOP_STEPS.map((step, index) => {
+              const isCompleted = completedSteps.includes(step.id);
+              const isCurrent = currentStep === step.id;
+              const isExpanded = expandedStep.value === step.id;
+
+              // Index 0..4 => centers at 1/6..5/6
+              const leftPct = ((index + 1) / 6) * 100;
+
+              return (
+                <li
+                  key={step.id}
+                  class="absolute"
+                  style={{
+                    left: `${leftPct}%`,
+                    top: 0,
+                    transform: "translateX(-50%)",
+                  }}
                 >
-                  <span
-                    class={cn(
-                      "w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium mb-1 transition-all",
-                      "group-hover:ring-2 group-hover:ring-blueprint-300 dark:group-hover:ring-blueprint-600",
-                      isExpanded && "ring-2 ring-blueprint-500 dark:ring-blueprint-400",
-                      isCurrent && "bg-blueprint-500 text-white",
-                      isCompleted && "bg-signal-500 text-white",
-                      !isCurrent &&
-                        !isCompleted &&
-                        "bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400"
-                    )}
+                  <button
+                    type="button"
+                    onClick={() =>
+                      (expandedStep.value =
+                        expandedStep.value === step.id ? null : step.id)
+                    }
+                    class="flex flex-col items-center gap-2 group"
                   >
-                    {isCompleted ? "✓" : index + 1}
-                  </span>
-                  <span
-                    class={cn(
-                      "text-xs font-medium transition-colors",
-                      isExpanded && "text-blueprint-600 dark:text-blueprint-400",
-                      isCurrent &&
-                        !isExpanded &&
-                        "text-blueprint-600 dark:text-blueprint-400",
-                      isCompleted &&
-                        !isExpanded &&
-                        "text-signal-600 dark:text-signal-400",
-                      !isCurrent &&
-                        !isCompleted &&
-                        !isExpanded &&
-                        "text-slate-600 dark:text-slate-400 group-hover:text-blueprint-600 dark:group-hover:text-blueprint-400"
-                    )}
-                  >
-                    {step.label}
-                  </span>
-                </button>
-                {index < LOOP_STEPS.length - 1 && (
-                  <div
-                    class={cn(
-                      "flex-1 h-0.5 mx-2",
-                      isCompleted
-                        ? "bg-signal-300 dark:bg-signal-700"
-                        : "bg-slate-300 dark:bg-slate-600"
-                    )}
-                    aria-hidden="true"
-                  />
-                )}
-              </li>
-            );
-          })}
-        </ol>
+                    <span
+                      class={cn(
+                        "relative z-10 w-7 h-7 rounded-full flex items-center justify-center text-[12px] font-semibold transition-all",
+                        "group-hover:ring-2 group-hover:ring-blueprint-300 dark:group-hover:ring-blueprint-600",
+                        isExpanded &&
+                          "ring-2 ring-blueprint-500 dark:ring-blueprint-400",
+                        isCurrent && "bg-blueprint-500 text-white",
+                        isCompleted && "bg-signal-500 text-white",
+                        !isCurrent &&
+                          !isCompleted &&
+                          "bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400"
+                      )}
+                    >
+                      {isCompleted ? "✓" : index + 1}
+                    </span>
+                    <span
+                      class={cn(
+                        "text-sm font-semibold whitespace-nowrap text-center leading-none transition-colors",
+                        isExpanded &&
+                          "text-blueprint-600 dark:text-blueprint-400",
+                        isCurrent &&
+                          !isExpanded &&
+                          "text-blueprint-600 dark:text-blueprint-400",
+                        isCompleted &&
+                          !isExpanded &&
+                          "text-signal-600 dark:text-signal-400",
+                        !isCurrent &&
+                          !isCompleted &&
+                          !isExpanded &&
+                          "text-slate-600 dark:text-slate-400 group-hover:text-blueprint-600 dark:group-hover:text-blueprint-400"
+                      )}
+                    >
+                      {step.label}
+                    </span>
+                  </button>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
       </div>
 
       {/* Expanded detail panel */}
