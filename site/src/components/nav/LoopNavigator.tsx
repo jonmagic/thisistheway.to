@@ -89,35 +89,52 @@ export function LoopNavigator({
 
   if (compact) {
     return (
-      <ol class="space-y-1.5">
+      <ol class="space-y-1">
         {LOOP_STEPS.map((step, index) => {
           const isCompleted = completedSteps.includes(step.id);
           const isCurrent = currentStep === step.id;
 
           return (
-            <li
-              key={step.id}
-              class={cn(
-                "flex items-center gap-2 text-xs",
-                isCurrent &&
-                  "text-blueprint-500 dark:text-blueprint-400 font-medium",
-                isCompleted && "text-signal-600 dark:text-signal-400",
-                !isCurrent && !isCompleted && "text-slate-500 dark:text-slate-500"
-              )}
-            >
-              <span
+            <li key={step.id} class="group relative">
+              <div
                 class={cn(
-                  "w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-medium",
+                  "flex items-center gap-2 text-xs py-0.5 cursor-default",
                   isCurrent &&
-                    "bg-blueprint-100 dark:bg-blueprint-900/50 text-blueprint-600 dark:text-blueprint-400",
-                  isCompleted &&
-                    "bg-signal-100 dark:bg-signal-900/50 text-signal-600 dark:text-signal-400",
-                  !isCurrent && !isCompleted && "bg-slate-100 dark:bg-slate-800"
+                    "text-blueprint-500 dark:text-blueprint-400 font-medium",
+                  isCompleted && "text-signal-600 dark:text-signal-400",
+                  !isCurrent &&
+                    !isCompleted &&
+                    "text-slate-500 dark:text-slate-500"
                 )}
               >
-                {isCompleted ? "✓" : index + 1}
-              </span>
-              {step.label}
+                <span
+                  class={cn(
+                    "w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-medium transition-all",
+                    "group-hover:ring-2 group-hover:ring-blueprint-300 dark:group-hover:ring-blueprint-600",
+                    isCurrent &&
+                      "bg-blueprint-100 dark:bg-blueprint-900/50 text-blueprint-600 dark:text-blueprint-400",
+                    isCompleted &&
+                      "bg-signal-100 dark:bg-signal-900/50 text-signal-600 dark:text-signal-400",
+                    !isCurrent &&
+                      !isCompleted &&
+                      "bg-slate-100 dark:bg-slate-800"
+                  )}
+                >
+                  {isCompleted ? "✓" : index + 1}
+                </span>
+                <span class="group-hover:text-blueprint-500 dark:group-hover:text-blueprint-400 transition-colors">
+                  {step.label}
+                </span>
+              </div>
+              {/* Tooltip on hover */}
+              <div class="absolute left-0 bottom-full mb-2 w-56 p-3 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50 pointer-events-none">
+                <p class="text-xs font-semibold text-slate-900 dark:text-white mb-1">
+                  {step.label}
+                </p>
+                <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
             </li>
           );
         })}
