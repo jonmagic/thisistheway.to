@@ -1,39 +1,67 @@
+import { AILayout } from "@/layouts/AILayout";
+
 export function AIGraduation() {
   return (
-    <main class="min-h-screen bg-white dark:bg-slate-900 transition-colors">
-      <div class="max-w-prose mx-auto px-6 py-16">
-        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
-          Graduation
-        </h1>
-        <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">
-          When to turn advice into gates
+    <AILayout
+      title="Graduation"
+      subtitle="When to turn advice into gates"
+    >
+      <section>
+        <p>
+          Not every improvement should become a gate. Gates add friction. The
+          question is whether the friction is worth the protection.
         </p>
+      </section>
 
-        <section class="mt-12">
-          <h2 class="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
-            Graduation Criteria
-          </h2>
-          <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-            Not every improvement should become a gate. Here's how to decide
-            when guidance should graduate to enforcement.
-          </p>
+      <section>
+        <h2>Graduation Criteria</h2>
+        <p>A fix should graduate from guidance to enforcement when:</p>
+        <ul>
+          <li>
+            <strong>High frequency</strong> — You've debugged the same class of
+            issue multiple times recently
+          </li>
+          <li>
+            <strong>High blast radius</strong> — The miss can corrupt data, break
+            prod, or waste significant time
+          </li>
+          <li>
+            <strong>High ambiguity</strong> — Humans disagree about what "right"
+            means unless it's encoded
+          </li>
+          <li>
+            <strong>Easy to automate</strong> — It's cheap to run locally and in
+            CI
+          </li>
+        </ul>
+        <p>If a fix hits 2+ of these criteria, it wants enforcement.</p>
+      </section>
 
-          <div class="mt-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
-            <p class="text-slate-600 dark:text-slate-400 italic">
-              Interactive rubric widget coming soon...
-            </p>
-          </div>
-        </section>
+      <section>
+        <h2>Types of Gates</h2>
+        <h3>Advisory gates</h3>
+        <p>
+          Warn but don't block. Good for new rules where you're still calibrating
+          the threshold.
+        </p>
+        <h3>Blocking gates</h3>
+        <p>
+          Fail the build/commit/deploy. Use for high-confidence rules with clear
+          remediation.
+        </p>
+        <h3>Human-in-the-loop gates</h3>
+        <p>
+          Require explicit approval. Good for high-stakes changes where
+          automation can flag but shouldn't decide.
+        </p>
+      </section>
 
-        <nav class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700">
-          <a
-            href="/ai"
-            class="text-blueprint-500 hover:text-blueprint-600 dark:text-blueprint-400 dark:hover:text-blueprint-300"
-          >
-            ← Back to overview
-          </a>
-        </nav>
-      </div>
-    </main>
+      <section>
+        <h2>Graduation Rubric</h2>
+        <p>
+          <em>Interactive rubric widget coming soon...</em>
+        </p>
+      </section>
+    </AILayout>
   );
 }

@@ -1,59 +1,69 @@
+import { AILayout } from "@/layouts/AILayout";
+
 export function AIIndex() {
   return (
-    <main class="min-h-screen bg-white dark:bg-slate-900 transition-colors">
-      <div class="max-w-prose mx-auto px-6 py-16">
-        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
-          Building with AI Agents
-        </h1>
-        <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">
-          Turning misses into systemic improvements
+    <AILayout
+      title="Building with AI Agents"
+      subtitle="Turning misses into systemic improvements"
+    >
+      <section>
+        <h2>The Improvement Loop</h2>
+        <p>
+          Every agent miss is a learning opportunity. The goal isn't to prevent
+          all failures—it's to build systems that learn from them.
         </p>
+        <p>
+          Agents don't fail because they're lazy. They fail because they can't
+          see. Sometimes the information isn't present. Sometimes there's no
+          feedback loop. Sometimes we gave them too much freedom.
+        </p>
+        <p>
+          So the job isn't to write the perfect prompt. The job is to{" "}
+          <strong>design an environment where the easiest path is the correct one</strong>.
+        </p>
+      </section>
 
-        <section class="mt-12">
-          <h2 class="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
-            The Improvement Loop
-          </h2>
-          <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-            Every agent miss is a learning opportunity. The goal isn't to
-            prevent all failures—it's to build systems that learn from them.
-          </p>
-          <p class="mt-4 text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-            Content coming soon...
-          </p>
-        </section>
+      <section>
+        <h2>The Loop</h2>
+        <p>When something goes wrong, the response pattern is:</p>
+        <ol>
+          <li>
+            <strong>Capture the miss</strong> — What did the agent do? What did
+            reality say?
+          </li>
+          <li>
+            <strong>Diagnose</strong> — What didn't it see? Missing data,
+            constraint, feedback, or boundaries?
+          </li>
+          <li>
+            <strong>Choose a primitive</strong> — Observability, instructions,
+            tooling, guardrails, or verification?
+          </li>
+          <li>
+            <strong>Encode as artifact</strong> — Version-controlled, repeatable,
+            not just memory.
+          </li>
+          <li>
+            <strong>Promote to gate</strong> — When it's worth enforcing, make it
+            a gate.
+          </li>
+        </ol>
+      </section>
 
-        <nav class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700">
-          <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">
-            Explore the framework:
-          </p>
-          <ul class="space-y-2">
-            <li>
-              <a
-                href="/ai/primitives"
-                class="text-blueprint-500 hover:text-blueprint-600 dark:text-blueprint-400 dark:hover:text-blueprint-300"
-              >
-                Primitives →
-              </a>
-            </li>
-            <li>
-              <a
-                href="/ai/miss-taxonomy"
-                class="text-blueprint-500 hover:text-blueprint-600 dark:text-blueprint-400 dark:hover:text-blueprint-300"
-              >
-                Miss Taxonomy →
-              </a>
-            </li>
-            <li>
-              <a
-                href="/ai/graduation"
-                class="text-blueprint-500 hover:text-blueprint-600 dark:text-blueprint-400 dark:hover:text-blueprint-300"
-              >
-                Graduation →
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </main>
+      <section>
+        <h2>Explore the Framework</h2>
+        <ul>
+          <li>
+            <a href="/ai/primitives">Primitives</a> — The five knobs you can turn
+          </li>
+          <li>
+            <a href="/ai/miss-taxonomy">Miss Taxonomy</a> — Common failure patterns
+          </li>
+          <li>
+            <a href="/ai/graduation">Graduation</a> — When guidance becomes enforcement
+          </li>
+        </ul>
+      </section>
+    </AILayout>
   );
 }
