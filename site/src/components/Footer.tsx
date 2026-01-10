@@ -23,7 +23,7 @@ export function Footer() {
 
         <div class="flex items-center gap-4">
           <a
-            href="https://thisistheway.to/llms.txt"
+            href="https://thisistheway.to/ai/llms.txt"
             class="hover:text-blueprint-500 dark:hover:text-blueprint-400 transition-colors"
           >
             llms.txt

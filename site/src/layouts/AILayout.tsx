@@ -1,4 +1,5 @@
 import { ComponentChildren } from "preact";
+import { useEffect } from "preact/hooks";
 import { useLocation } from "preact-iso";
 import { cn } from "@/lib/utils";
 import { ReadingProgress } from "@/components/nav/ReadingProgress";
@@ -30,6 +31,12 @@ const NAV_ITEMS = [
  */
 export function AILayout({ children, title, subtitle, isIndex = false }: AILayoutProps) {
   const { path } = useLocation();
+
+  useEffect(() => {
+    document.title = isIndex
+      ? "ThisIsTheWay.to AI"
+      : `${title} | ThisIsTheWay.to AI`;
+  }, [title, isIndex]);
 
   return (
     <div class="min-h-screen bg-white dark:bg-slate-900 transition-colors">

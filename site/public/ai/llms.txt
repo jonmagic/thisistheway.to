@@ -1,0 +1,20 @@
+# ThisIsTheWay.to AI
+
+> Build with AI Agents: Turning misses into systemic improvements
+
+This site documents a framework for improving AI agent behavior through systematic diagnosis and intervention. Every agent miss is a learning opportunity—the goal is to build systems that learn from failures, not just fix them.
+
+Agents don't fail because they're lazy. They fail because they can't see: missing information (source of truth not accessible), missing constraints (no definition of "good"), missing feedback (no tests or evals), or missing boundaries (too much freedom). The job isn't to write the perfect prompt—it's to design an environment where the easiest path is the correct one.
+
+**The Loop:** When an agent misses, follow this pattern: (1) Capture the miss—what did the agent do? What did reality say? Be specific. (2) Diagnose—ask "what didn't it see?" Missing data, constraint, feedback, or boundaries? (3) Choose a lever—map the diagnosis to observability, instructions, tools, guardrails, or verification. Pick the smallest fix that closes the gap. (4) Encode as artifact—turn the fix into something version-controlled and repeatable, not a memory. (5) Tighten to gate—when a fix is high-value and automatable, promote it from guidance to enforcement.
+
+**The Five Levers:** (1) Observability—can the agent see what it needs? Most hallucinations trace back here. The agent invents an API field because the schema wasn't in scope. The fix is making the source of truth discoverable. Reach for this when the agent confidently invents things that don't exist. (2) Instructions—does the agent know what "good" looks like? This is where you capture implicit rules. "We always use named exports." Reach for this when the agent violates a norm you haven't articulated. (3) Tools—can the agent take the right actions? Sometimes it knows what it needs but can't get there. Good tools are focused and composable. Reach for this when the agent needs runtime information it can't get from static files. (4) Guardrails—what should the agent NOT do? Freedom is expensive. Guardrails shrink the action space. Allowlists beat blocklists. Reach for this when the cost of a wrong action is high. (5) Verification—how does the agent know it succeeded? Without verification, the agent is flying blind. Reach for this when the agent claims "done" but the result doesn't match expectations.
+
+**How Agents Fail:** Truth-misses (hallucinations)—the agent invents things that don't exist; fix by making source-of-truth discoverable. Reactivity-misses—code compiles but doesn't work due to implicit runtime rules; fix by encoding rules in instructions and adding tests. Integration-misses—agent confuses boundaries (server/client, CI/local); fix with explicit boundary docs. Taste-misses—technically correct but aesthetically wrong; fix with visual evals. Process-misses—claims done without finishing; fix with checklists and automated gates.
+
+**Tightening the Loop:** Not every improvement should become a gate. Gates add friction. Use this rubric: high frequency (same issue twice this week), high blast radius (can corrupt data or break prod), high ambiguity (humans disagree without encoding), easy to automate (cheap to run in CI). If it hits 2+ criteria, it wants enforcement. Gate types: advisory (warn but don't block), blocking (fail the build), human-in-the-loop (require approval). Implementation: pre-commit hooks for fast feedback (under 5s), CI checks for thorough validation, deploy gates for final validation.
+
+## Optional
+
+- [Original Essay](https://jonmagic.com/posts/turning-agent-misses-into-systemic-improvements/): The essay that inspired this framework
+- [Agent Config Reference](https://agentconfig.org): Configuration primitives across AI tools
