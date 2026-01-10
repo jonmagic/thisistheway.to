@@ -90,7 +90,7 @@ const MISS_TYPES = [
 export function AIMissTaxonomy() {
   return (
     <AILayout
-      title="Miss Taxonomy"
+      title="How Agents Fail"
       subtitle="Common patterns of agent failures and how to address them"
     >
       <Section>
@@ -128,7 +128,7 @@ export function AIMissTaxonomy() {
           },
           {
             href: "/ai/primitives",
-            title: "Primitives",
+            title: "The Five Levers",
             source: "thisistheway.to",
           },
         ]}

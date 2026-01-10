@@ -7,8 +7,9 @@ import { LoopNavigator } from "@/components/nav/LoopNavigator";
 export function AIIndex() {
   return (
     <AILayout
-      title="Building with AI Agents"
+      title="Build with AI Agents"
       subtitle="Turning misses into systemic improvements"
+      isIndex
     >
       <Section id="improvement-loop">
         <h2>The Improvement Loop</h2>
@@ -78,15 +79,15 @@ export function AIIndex() {
         <h2>Explore the Framework</h2>
         <ul>
           <li>
-            <a href="/ai/primitives">Primitives</a> — The five knobs you can turn
+            <a href="/ai/primitives">The Five Levers</a> — What you can change
           </li>
           <li>
-            <a href="/ai/miss-taxonomy">Miss Taxonomy</a> — Common failure
+            <a href="/ai/miss-taxonomy">How Agents Fail</a> — Common failure
             patterns
           </li>
           <li>
-            <a href="/ai/graduation">Graduation</a> — When guidance becomes
-            enforcement
+            <a href="/ai/graduation">Tightening the Loop</a> — When guidance
+            becomes enforcement
           </li>
         </ul>
       </Section>

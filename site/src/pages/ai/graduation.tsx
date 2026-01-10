@@ -6,7 +6,7 @@ import { GraduationRubric } from "@/components/widgets/GraduationRubric";
 
 export function AIGraduation() {
   return (
-    <AILayout title="Graduation" subtitle="When to turn advice into gates">
+    <AILayout title="Tightening the Loop" subtitle="When to turn advice into gates">
       <Section id="intro">
         <p>
           Not every improvement should become a gate. Gates add friction. The
@@ -19,9 +19,9 @@ export function AIGraduation() {
       </Section>
 
       <Section id="rubric">
-        <h2>Graduation Rubric</h2>
+        <h2>The Rubric</h2>
         <p>
-          Use this rubric to evaluate whether an improvement should graduate
+          Use this rubric to evaluate whether an improvement should tighten
           from guidance to enforcement.
         </p>
 
@@ -100,7 +100,7 @@ export function AIGraduation() {
           },
           {
             href: "/ai/miss-taxonomy",
-            title: "Miss Taxonomy",
+            title: "How Agents Fail",
             source: "thisistheway.to",
           },
         ]}

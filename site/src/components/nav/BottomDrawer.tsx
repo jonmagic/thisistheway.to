@@ -4,9 +4,9 @@ import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
   { href: "/ai", label: "Overview" },
-  { href: "/ai/primitives", label: "Primitives" },
-  { href: "/ai/miss-taxonomy", label: "Taxonomy" },
-  { href: "/ai/graduation", label: "Graduation" },
+  { href: "/ai/primitives", label: "The Five Levers" },
+  { href: "/ai/miss-taxonomy", label: "How Agents Fail" },
+  { href: "/ai/graduation", label: "Tightening the Loop" },
 ];
 
 const LOOP_STEPS = [

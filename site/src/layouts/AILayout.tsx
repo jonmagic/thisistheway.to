@@ -10,13 +10,15 @@ interface AILayoutProps {
   children: ComponentChildren;
   title: string;
   subtitle?: string;
+  /** If true, this is the section index page (no section subtitle shown) */
+  isIndex?: boolean;
 }
 
 const NAV_ITEMS = [
   { href: "/ai", label: "Overview" },
-  { href: "/ai/primitives", label: "Primitives" },
-  { href: "/ai/miss-taxonomy", label: "Miss Taxonomy" },
-  { href: "/ai/graduation", label: "Graduation" },
+  { href: "/ai/primitives", label: "The Five Levers" },
+  { href: "/ai/miss-taxonomy", label: "How Agents Fail" },
+  { href: "/ai/graduation", label: "Tightening the Loop" },
 ];
 
 /**
@@ -26,7 +28,7 @@ const NAV_ITEMS = [
  * - Sticky right rail navigation
  * - Reading progress bar
  */
-export function AILayout({ children, title, subtitle }: AILayoutProps) {
+export function AILayout({ children, title, subtitle, isIndex = false }: AILayoutProps) {
   const { path } = useLocation();
 
   return (
@@ -43,11 +45,16 @@ export function AILayout({ children, title, subtitle }: AILayoutProps) {
                 href="/"
                 class="text-sm text-slate-500 dark:text-slate-400 hover:text-blueprint-500 dark:hover:text-blueprint-400 mb-4 inline-block"
               >
-                ← thisistheway.to
+                ← ThisIsTheWay.to
               </a>
               <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
-                {title}
+                Build with AI Agents
               </h1>
+              {!isIndex && (
+                <h2 class="mt-2 text-xl sm:text-2xl font-semibold text-blueprint-500 dark:text-blueprint-400">
+                  {title}
+                </h2>
+              )}
               {subtitle && (
                 <p class="mt-3 text-lg text-slate-600 dark:text-slate-400">
                   {subtitle}

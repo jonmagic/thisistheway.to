@@ -1,0 +1,68 @@
+# ThisIsTheWay.to
+
+> Build with AI Agents: Turning misses into systemic improvements
+
+## About
+
+This site documents a framework for improving AI agent behavior through systematic diagnosis and intervention. Every agent miss is a learning opportunity—the goal is to build systems that learn from failures, not just fix them.
+
+## Core Concept
+
+Agents don't fail because they're lazy. They fail because they can't see:
+- Missing information (source of truth not accessible)
+- Missing constraints (no definition of "good")
+- Missing feedback (no tests or evals)
+- Missing boundaries (too much freedom)
+
+The job isn't to write the perfect prompt—it's to design an environment where the easiest path is the correct one.
+
+## The Loop
+
+When an agent misses, follow this pattern:
+
+1. **Capture the miss** — What did the agent do? What did reality say?
+2. **Diagnose** — What didn't it see? Missing data, constraint, feedback, or boundaries?
+3. **Choose a lever** — Observability, instructions, tools, guardrails, or verification?
+4. **Encode as artifact** — Version-controlled, repeatable, not just memory.
+5. **Tighten to gate** — When it's worth enforcing, make it mandatory.
+
+## The Five Levers
+
+1. **Observability** — Can the agent see what it needs? Schemas, docs, file structures.
+2. **Instructions** — Does it know what "good" looks like? Norms, constraints, conventions.
+3. **Tools** — Can it take the right actions? APIs, commands, data fetching.
+4. **Guardrails** — What should it NOT do? Allowlists, blocklists, boundaries.
+5. **Verification** — How does it know it succeeded? Tests, linters, evals.
+
+## How Agents Fail
+
+Common failure patterns:
+
+- **Truth-misses (Hallucinations)** — Invents things that don't exist. Fix: make source of truth discoverable.
+- **Reactivity-misses** — Code compiles but doesn't work. Fix: encode runtime rules, add test harness.
+- **Integration-misses** — Confuses boundaries (server/client, CI/local). Fix: explicit boundary docs.
+- **Taste-misses** — Technically correct, aesthetically wrong. Fix: visual evals, design system constraints.
+- **Process-misses** — Claims done without finishing. Fix: checklists, automated gates.
+
+## Tightening the Loop
+
+Not every fix should become a gate. Use this rubric:
+
+- **High frequency** — Same issue twice this week? Consider enforcement.
+- **High blast radius** — Can corrupt data or break prod? Enforce it.
+- **High ambiguity** — Humans disagree without encoding? Write it down.
+- **Easy to automate** — Cheap to run locally and in CI? Make it a gate.
+
+If it hits 2+ criteria, it wants enforcement.
+
+## Links
+
+- /ai — Overview and the improvement loop
+- /ai/primitives — The Five Levers in detail
+- /ai/miss-taxonomy — How Agents Fail patterns
+- /ai/graduation — Tightening the Loop rubric
+
+## Related Resources
+
+- https://jonmagic.com/posts/turning-agent-misses-into-systemic-improvements/ — Original essay
+- https://agentconfig.org — Configuration primitives reference across AI tools

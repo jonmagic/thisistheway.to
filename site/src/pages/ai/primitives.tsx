@@ -5,12 +5,12 @@ import { RelatedLinks } from "@/components/content/RelatedLinks";
 export function AIPrimitives() {
   return (
     <AILayout
-      title="Primitives"
-      subtitle="The five knobs you can turn to improve agent behavior"
+      title="The Five Levers"
+      subtitle="What you can change to improve agent behavior"
     >
       <Section>
         <p>
-          When an agent misses, the fix usually maps to one of five primitives.
+          When an agent misses, the fix usually maps to one of five levers.
           Understanding these gives you a vocabulary for diagnosing problems and
           choosing interventions.
         </p>
