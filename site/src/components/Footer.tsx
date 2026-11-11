@@ -27,7 +27,8 @@ export function Footer({ llmsTxtPath = "/llms.txt" }: FooterProps) {
 
         <div class="flex items-center gap-4">
           <a
-            href={`https://thisistheway.to${llmsTxtPath}`}
+            href={llmsTxtPath}
+            onClick={(event) => event.stopPropagation()}
             class="hover:text-blueprint-500 dark:hover:text-blueprint-400 transition-colors"
           >
             llms.txt

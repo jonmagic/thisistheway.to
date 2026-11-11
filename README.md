@@ -2,7 +2,7 @@
 
 To build the future.
 
-Turning agent misses into systemic improvements.
+Guides for improving AI agents and practicing continuous agentic engineering.
 
 ## Development
 

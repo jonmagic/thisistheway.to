@@ -8,7 +8,13 @@ export default defineConfig({
       prerender: {
         enabled: true,
         renderTarget: "#app",
-        additionalPrerenderRoutes: ["/404"],
+        previewMiddlewareEnabled: true,
+        additionalPrerenderRoutes: [
+          "/404",
+          ...["/factory", "/eng-loop"].flatMap((base) =>
+            ["", "/start", "/recovery", "/repository", "/improvement", "/exploration"].map((suffix) => `${base}${suffix}`)
+          ),
+        ],
       },
     }),
   ],

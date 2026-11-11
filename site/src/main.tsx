@@ -16,5 +16,11 @@ if (typeof window !== "undefined") {
 // Export prerender function for build-time static site generation
 // This is called by @preact/preset-vite during the build process
 export async function prerender() {
-  return await ssr(<App />);
+  const result = await ssr(<App />);
+  for (const link of result.links ?? []) {
+    if (new URL(link, "http://localhost").pathname.endsWith(".txt")) {
+      result.links?.delete(link);
+    }
+  }
+  return result;
 }

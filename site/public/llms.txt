@@ -7,3 +7,10 @@ ThisIsTheWay.to is a collection of opinionated guides on various software and ca
 ## Guides
 
 - [Build with AI Agents](https://thisistheway.to/ai/llms.txt): Turning agent misses into systemic improvements
+- [Practice Continuous Agentic Engineering](https://thisistheway.to/eng-loops): Keep a project moving across tasks and sessions
+- [Guide text](https://thisistheway.to/eng-loops/llms.txt): Machine-readable overview and chapter links
+- [Start with One Job](https://thisistheway.to/eng-loops/start): Let an agent research a goal, build a work list and deliver a checked result
+- [Recover the Work](https://thisistheway.to/eng-loops/recovery): Save progress and recover after a lost chat or missed handoff
+- [Put the Repository in Charge](https://thisistheway.to/eng-loops/repository): Design a controller that tracks jobs and enforces limits
+- [Improve the Loop](https://thisistheway.to/eng-loops/improvement): Check the product on real workloads and learn from mistakes
+- [Explore Another Approach](https://thisistheway.to/eng-loops/exploration): Compare two ways to solve a problem under the same budget

@@ -129,3 +129,629 @@
 .dark .prose-container strong {
   color: white;
 }
+
+.factory-guide {
+  --factory-page: #ffffff;
+  --factory-surface: #f1f3f7;
+  --factory-panel: #fafbff;
+  --factory-ink: #222638;
+  --factory-body: #464d62;
+  --factory-accent: #4b4aa3;
+  --factory-accent-hover: #35347f;
+  --factory-border: #d7dbe5;
+  --factory-agent: #e9eaff;
+  --factory-human: #e5eaf0;
+  background: var(--factory-page);
+  color: var(--factory-body);
+}
+
+.dark .factory-guide {
+  --factory-page: #1d2030;
+  --factory-surface: #1d2030;
+  --factory-panel: #262b40;
+  --factory-ink: #f0f0fb;
+  --factory-body: #c6c9dd;
+  --factory-accent: #b3b5f2;
+  --factory-accent-hover: #dedfff;
+  --factory-border: #3e4560;
+  --factory-agent: #2b2c47;
+  --factory-human: #28333e;
+}
+
+.factory-guide .prose-container p,
+.factory-guide .prose-container ul,
+.factory-guide .prose-container ol {
+  color: var(--factory-body);
+}
+
+.factory-guide .prose-container h2,
+.factory-guide .prose-container h3,
+.factory-guide .prose-container strong {
+  color: var(--factory-ink);
+}
+
+.factory-guide .prose-container a,
+.factory-guide nav a[aria-current="page"],
+.factory-guide nav[aria-label="Site navigation"] a:first-child,
+.factory-guide nav[aria-label="Continue guide"] a,
+.factory-guide main > header a {
+  color: var(--factory-accent);
+}
+
+.factory-guide .prose-container a:hover,
+.factory-guide nav a:hover,
+.factory-guide main > header a:hover {
+  color: var(--factory-accent-hover);
+}
+
+.factory-guide .factory-article a.group > span:first-child {
+  color: var(--factory-accent);
+}
+
+.factory-guide .factory-article a.group:hover > span:first-child {
+  color: var(--factory-accent-hover);
+}
+
+.factory-guide .factory-article a.group > span:last-child {
+  color: var(--factory-body);
+}
+
+.factory-guide nav a,
+.factory-guide footer a {
+  color: var(--factory-body);
+}
+
+.dark .factory-guide nav a,
+.dark .factory-guide footer a,
+.dark .factory-guide footer div {
+  color: var(--factory-body);
+}
+
+.dark .factory-guide nav a[aria-current="page"],
+.dark .factory-guide nav[aria-label="Site navigation"] a:first-child,
+.dark .factory-guide nav[aria-label="Continue guide"] a,
+.dark .factory-guide main > header a {
+  color: var(--factory-accent);
+}
+
+.dark .factory-guide nav a:hover,
+.dark .factory-guide footer a:hover,
+.dark .factory-guide main > header a:hover {
+  color: var(--factory-accent-hover);
+}
+
+.factory-guide footer {
+  border-color: var(--factory-border);
+}
+
+.factory-guide footer a:hover {
+  color: var(--factory-accent);
+}
+
+.factory-guide .prose-container code {
+  background: var(--factory-surface);
+  color: var(--factory-ink);
+}
+
+.factory-article h1 {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--factory-ink);
+  margin-bottom: 1.5rem;
+}
+
+.factory-article .factory-intro {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-top: 4px solid var(--factory-accent);
+  border-radius: 0.75rem;
+  background: var(--factory-surface);
+}
+
+.dark .factory-article .factory-intro {
+  background: var(--factory-panel);
+}
+
+.factory-article .factory-intro h1 {
+  margin-bottom: 0.75rem;
+  color: var(--factory-accent);
+}
+
+.factory-article .factory-intro > p:last-child {
+  margin-bottom: 0;
+}
+
+.factory-article .factory-eyebrow {
+  margin-bottom: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--factory-accent);
+}
+
+.factory-article .factory-status {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--factory-accent);
+  border-radius: 999px;
+  background: var(--factory-agent);
+  color: var(--factory-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.factory-article .factory-rules {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: factory-rule;
+}
+
+.factory-article .factory-rules li {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--factory-border);
+  border-radius: 0.65rem;
+  background: var(--factory-surface);
+  counter-increment: factory-rule;
+}
+
+.factory-article .factory-rules li::before {
+  content: counter(factory-rule, decimal-leading-zero);
+  flex: none;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--factory-accent);
+}
+
+@media (min-width: 640px) {
+  .factory-article .factory-rules {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.factory-article .factory-loop {
+  container-type: inline-size;
+}
+
+.factory-article .factory-loop-steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 1rem 0 0;
+  border-top: 3px solid var(--factory-border);
+  list-style: none;
+}
+
+.factory-article .factory-loop-steps li {
+  min-width: 0;
+  margin: 0;
+}
+
+.factory-article .factory-loop-steps .number {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: var(--factory-accent);
+  font: 700 0.8rem var(--font-mono);
+}
+
+.factory-article .factory-loop-steps .check .number {
+  color: var(--factory-body);
+}
+
+.factory-article .factory-loop-steps .again .number {
+  color: var(--factory-accent);
+}
+
+.factory-article .factory-loop-steps h3 {
+  margin: 0 0 0.2rem;
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.factory-article .factory-loop-steps p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.factory-article .factory-naming {
+  margin: 0 0 3rem;
+}
+
+.factory-article .factory-naming p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@container (max-width: 500px) {
+  .factory-article .factory-loop-steps {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-top: 0;
+  }
+
+  .factory-article .factory-loop-steps li {
+    display: grid;
+    grid-template-columns: 1.5rem minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--factory-border);
+  }
+
+  .factory-article .factory-loop-steps .number {
+    margin: 0.25rem 0 0;
+  }
+
+  .factory-article .factory-loop-steps h3 {
+    font-size: 1.05rem;
+  }
+
+  .factory-article .factory-loop-steps p {
+    font-size: 1rem;
+  }
+}
+
+.factory-article h2,
+.factory-article h3 {
+  scroll-margin-top: 1rem;
+}
+
+.factory-article h2 {
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--factory-accent);
+}
+
+.factory-article .factory-ownership {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1rem 0 2rem;
+}
+
+.factory-article .factory-ownership-row {
+  padding: 1rem;
+  border: 1px solid var(--factory-border);
+  border-radius: 0.65rem;
+  background: var(--factory-surface);
+}
+
+.dark .factory-article .factory-ownership-row {
+  background: var(--factory-panel);
+}
+
+.factory-article .factory-ownership dt {
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  color: var(--factory-accent);
+}
+
+.factory-article .factory-ownership dd {
+  margin: 0 0 0.5rem;
+  padding: 0.75rem;
+  border-radius: 0.4rem;
+  line-height: 1.5;
+  color: var(--factory-body);
+}
+
+.factory-article .factory-ownership dd:last-child {
+  margin-bottom: 0;
+}
+
+.factory-article .factory-ownership dd strong {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.factory-article .factory-agent {
+  background: var(--factory-agent);
+}
+
+.factory-article .factory-human {
+  background: var(--factory-human);
+}
+
+@media (min-width: 550px) {
+  .factory-article .factory-ownership-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .factory-article .factory-ownership dt {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+  }
+
+  .factory-article .factory-ownership dd {
+    margin-bottom: 0;
+  }
+}
+
+.factory-article .factory-note {
+  display: block;
+  margin: 1.5rem 0 2rem;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--factory-accent);
+  border-radius: 0 0.5rem 0.5rem 0;
+  background: var(--factory-surface);
+  line-height: 1.6;
+  color: var(--factory-body);
+}
+
+.factory-article .factory-note strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--factory-ink);
+}
+
+.factory-article .factory-chapter-list {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.factory-article .factory-chapter-list li {
+  margin: 0;
+}
+
+.factory-article .factory-chapter-list a {
+  font-weight: 600;
+}
+
+.factory-guide nav[aria-label="Continuous agentic engineering chapters"] a {
+  border-radius: 0.35rem;
+  padding: 0.2rem 0.4rem;
+}
+
+.factory-guide nav[aria-label="Continuous agentic engineering chapters"] a[aria-current="page"] {
+  background: var(--factory-agent);
+}
+
+.factory-article table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 1rem 0 2rem;
+  border-collapse: collapse;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--factory-body);
+}
+
+.factory-article th,
+.factory-article td {
+  min-width: 9rem;
+  padding: 0.7rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--factory-border);
+}
+
+.factory-article .factory-primitives th:first-child,
+.factory-article .factory-primitives td:first-child {
+  min-width: 7.5rem;
+}
+
+.factory-article th {
+  font-weight: 600;
+  background: var(--factory-agent);
+  color: var(--factory-ink);
+}
+
+.factory-article tbody tr:nth-child(even) {
+  background: var(--factory-surface);
+}
+
+.factory-article ol {
+  list-style-type: decimal;
+}
+
+.factory-article ul {
+  list-style-type: disc;
+}
+
+.factory-article .factory-example {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--factory-accent);
+  border-radius: 0 0.5rem 0.5rem 0;
+  background: var(--factory-surface);
+}
+
+.dark .factory-article .factory-example {
+  background: var(--factory-panel);
+}
+
+.factory-article .factory-example.factory-prompt {
+  background: var(--factory-agent);
+}
+
+.dark .factory-article .factory-example.factory-prompt {
+  background: var(--factory-agent);
+}
+
+.factory-article .factory-example > h3 {
+  margin-top: 0;
+}
+
+.factory-article .copy-code:focus-visible {
+  outline: 2px solid var(--factory-accent);
+  outline-offset: 1px;
+}
+
+.factory-article .factory-example > :last-child {
+  margin-bottom: 0;
+}
+
+.factory-article .code-example {
+  position: relative;
+  margin: 1.25rem 0;
+}
+
+.factory-article .copy-code {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  background: transparent;
+  color: var(--factory-body);
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.factory-article .copy-code:hover,
+.factory-article .copy-code:focus-visible,
+.factory-article .copy-code[data-state] {
+  color: var(--factory-ink);
+  opacity: 1;
+}
+
+.factory-article .copy-code::before {
+  content: "";
+  position: absolute;
+  inset: 0.25rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  pointer-events: none;
+}
+
+.factory-article .copy-code:hover::before,
+.factory-article .copy-code:focus-visible::before,
+.factory-article .copy-code[data-state]::before {
+  border-color: color-mix(in srgb, var(--factory-ink) 20%, var(--factory-border));
+  background: var(--factory-border);
+}
+
+.factory-article .copy-code svg {
+  position: relative;
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+}
+
+@media (pointer: coarse) {
+  .factory-article .copy-code {
+    top: 0;
+    right: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .factory-article .copy-code::before {
+    inset: 0.5rem;
+  }
+}
+
+.factory-article .copy-feedback:empty {
+  display: none;
+}
+
+.factory-article .copy-feedback:not(:empty) {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: max-content;
+  max-width: min(16rem, calc(100vw - 3rem));
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--factory-border);
+  border-radius: 0.25rem;
+  background: var(--factory-panel);
+  color: var(--factory-ink);
+  text-align: left;
+}
+
+.factory-article pre {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: var(--factory-surface);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--factory-ink);
+}
+
+.factory-article .factory-example pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.dark .factory-article pre {
+  background: var(--factory-panel);
+}
+
+.factory-article pre code {
+  padding: 0;
+  background: none;
+  font-size: inherit;
+}
+
+.factory-guide .factory-article pre code {
+  background: none;
+  color: inherit;
+}
+
+.factory-article a:focus-visible,
+.factory-article button:focus-visible,
+.factory-guide nav[aria-label="Continuous agentic engineering chapters"] a:focus-visible,
+.factory-guide nav[aria-label="Continue guide"] a:focus-visible,
+.factory-guide nav[aria-label="Site navigation"] a:focus-visible {
+  outline: 2px solid var(--factory-accent);
+  outline-offset: 3px;
+}
+
+@media print {
+  .factory-guide,
+  .dark .factory-guide {
+    --factory-ink: #111827;
+    --factory-body: #111827;
+    --factory-accent: #35347f;
+    --factory-border: #d7dbe5;
+    background: white;
+  }
+
+  .factory-article .copy-code {
+    display: none;
+  }
+
+  .factory-article pre {
+    padding-top: 1rem;
+  }
+
+  .factory-article,
+  .factory-article * {
+    color: #111827 !important;
+    background: white !important;
+    box-shadow: none !important;
+  }
+
+  .factory-article .factory-status {
+    border-color: #111827 !important;
+  }
+}

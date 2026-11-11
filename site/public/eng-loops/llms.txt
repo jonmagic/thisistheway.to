@@ -1,0 +1,18 @@
+# Practice Continuous Agentic Engineering
+
+> A practical guide to keeping an agent-owned engineering project moving across tasks and sessions.
+
+Give agents an ambitious goal, then let them study existing systems, find useful questions, plan smaller jobs, carry them out and check the results. Save decisions and evidence outside the chat so a fresh session can continue. Raise the ambition as you see what agents can accomplish, rather than adding agents for their own sake.
+
+You set the larger goal, budget and permissions. Agents can revise subgoals within those limits, but independent checks or human review must establish acceptance before unattended continuation. Production observation needs separate read-only access and does not grant release permission. The proposed controller, production-feedback loop and branching experiment are labeled Experimental in the guide.
+
+**Working loop:** Choose a question or task and one owner, do one small step, check its result, save what happened and continue while useful work and permission remain.
+
+## Chapters
+
+- [Overview](https://thisistheway.to/eng-loops): The ambition, working loop and where to start
+- [1. Start with one job](https://thisistheway.to/eng-loops/start): Try a log-processing experiment, derive checks and let the agent choose what to do next
+- [2. Recover the work](https://thisistheway.to/eng-loops/recovery): Save the current job and test a real fresh-session recovery and scheduled handoff
+- [3. Put the repository in charge](https://thisistheway.to/eng-loops/repository): Experimental controller design for ownership, limits, acceptance and uncertain outcomes
+- [4. Improve the loop](https://thisistheway.to/eng-loops/improvement): Fix concrete misses, measure complete workloads and consider separately authorized production feedback
+- [5. Explore another approach](https://thisistheway.to/eng-loops/exploration): Experimental sequential-versus-branching comparison with the same total budget

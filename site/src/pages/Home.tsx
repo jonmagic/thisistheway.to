@@ -8,12 +8,24 @@ export function Home() {
           ThisIsTheWay<span class="text-slate-400 dark:text-slate-500">.to</span>
         </h1>
         <nav class="mt-6">
-          <a
-            href="/ai"
-            class="text-xl font-semibold text-blueprint-500 hover:text-blueprint-600 dark:text-blueprint-400 dark:hover:text-blueprint-300"
-          >
-            Build with AI Agents →
-          </a>
+          <ul class="space-y-3">
+            <li>
+              <a
+                href="/ai"
+                class="text-xl font-semibold text-blueprint-500 hover:text-blueprint-600 dark:text-blueprint-400 dark:hover:text-blueprint-300"
+              >
+                Build with AI Agents →
+              </a>
+            </li>
+            <li>
+              <a
+                href="/eng-loops"
+                class="text-xl font-semibold text-blueprint-500 hover:text-blueprint-600 dark:text-blueprint-400 dark:hover:text-blueprint-300"
+              >
+                Practice Continuous Agentic Engineering →
+              </a>
+            </li>
+          </ul>
         </nav>
         <Footer />
       </div>
