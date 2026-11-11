@@ -30,7 +30,7 @@ export function AgentFactory() {
             <li class="again"><span class="number" aria-hidden="true">05</span><div><h3>Continue</h3><p>Start the next task, or pause when work, budget or permission runs out.</p></div></li>
           </ol>
         </div>
-        <p>Two accounts show what this can look like in practice: <a href="https://justin.searls.co/posts/im-just-a-meat-proxy/">@searls describes MeatProxy</a> delivering beta builds and sending decisions to a human inbox; <a href="https://www.johnnunemaker.com/dont-make-a-human-do-what-ai-is-amazing-at/">@jnunemaker describes Nunebot</a> choosing and preparing improvements while he retains the merge decision.</p>
+        <p>Two accounts show what this can look like in practice. <a href="https://justin.searls.co/posts/im-just-a-meat-proxy/">@searls describes MeatProxy</a> delivering beta builds and sending decisions to a human inbox. <a href="https://www.johnnunemaker.com/dont-make-a-human-do-what-ai-is-amazing-at/">@jnunemaker describes Nunebot</a> choosing and preparing improvements while he retains the merge decision.</p>
       </Section>
 
       <aside class="factory-naming">

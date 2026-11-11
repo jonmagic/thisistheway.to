@@ -7,7 +7,7 @@ const html = String.raw`<section class="factory-intro">
 <p>Agents can miss information before they write code too. In <a href="https://jonmagic.com/posts/turning-agent-misses-into-systemic-improvements/">one example</a>, an agent made up a GraphQL field that did not exist. Giving it the actual schema and checking its query fixed the problem better than saying “be careful.” When an agent misses something, ask what information it needed and which check could have caught the mistake.</p>
 <h2 id="turn-a-miss-into-a-small-experiment">Turn a miss into a small experiment</h2>
 <p>Save what the agent tried and what happened. Check its assumption. Make one small change, try the same path again and keep the change only if it helps.</p>
-<p>For a process change, read what was delivered and accepted, what was rejected or reopened, and where work stalled. Choose one small improvement to the agent workflow, then check whether it helps on the next run. Keep that separate from changes to the product itself; <a href="https://justin.searls.co/posts/im-just-a-meat-proxy/#daily-retrospectives">@searls describes this retrospective practice</a>.</p>
+<p>For a process change, read what was delivered and accepted, what was rejected or reopened, and where work stalled. Choose one small improvement to the agent workflow, then check whether it helps on the next run. Keep that separate from changes to the product itself. <a href="https://justin.searls.co/posts/im-just-a-meat-proxy/#daily-retrospectives">@searls describes this retrospective practice</a>.</p>
 <table>
 <colgroup>
 <col style="width: 50%" />
