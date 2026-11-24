@@ -260,8 +260,8 @@ export function OverviewArchitectureDiagram() {
         <text x="50" y="208" font-size="11" font-weight="700" fill="var(--ce-warn)" font-family="var(--font-mono)">
           STUCK / FAIL RECOVERY
         </text>
-        <text x="50" y="227" font-size="11" fill="var(--ce-body)">
-          Livelock &amp; oscillation guards • Network parking • Strategy rotation
+        <text x="50" y="227" font-size="10.5" fill="var(--ce-body)">
+          Livelock &amp; oscillation • Network park • Strategy rotation
         </text>
 
         <rect
@@ -398,8 +398,8 @@ export function StatePlanesDiagram() {
           fill="var(--ce-accent-soft)"
         />
         <rect x="16" y="44" width="224" height="12" fill="var(--ce-accent-soft)" />
-        <text x="32" y="43" font-size="11" font-weight="700" fill="var(--ce-accent)" font-family="var(--font-mono)">
-          1. SHARED GIT (SOURCE OF TRUTH)
+        <text x="30" y="43" font-size="10" font-weight="700" fill="var(--ce-accent)" font-family="var(--font-mono)">
+          1. SHARED GIT (TRUTH)
         </text>
 
         <rect x="30" y="70" width="196" height="52" rx="7" fill="var(--ce-surface)" stroke="var(--ce-border)" />
@@ -434,7 +434,7 @@ export function StatePlanesDiagram() {
           fill="var(--ce-purple-soft)"
         />
         <rect x="268" y="44" width="224" height="12" fill="var(--ce-purple-soft)" />
-        <text x="284" y="43" font-size="11" font-weight="700" fill="var(--ce-purple)" font-family="var(--font-mono)">
+        <text x="282" y="43" font-size="10" font-weight="700" fill="var(--ce-purple)" font-family="var(--font-mono)">
           2. LOCAL LEDGER (TRANSIENT)
         </text>
 
@@ -471,7 +471,7 @@ export function StatePlanesDiagram() {
           fill="var(--ce-warn-soft)"
         />
         <rect x="520" y="44" width="224" height="12" fill="var(--ce-warn-soft)" />
-        <text x="536" y="43" font-size="11" font-weight="700" fill="var(--ce-warn)" font-family="var(--font-mono)">
+        <text x="534" y="43" font-size="10" font-weight="700" fill="var(--ce-warn)" font-family="var(--font-mono)">
           3. EPHEMERAL WORKTREE
         </text>
 
@@ -494,23 +494,26 @@ export function StatePlanesDiagram() {
         {/* Bottom Guard Banner */}
         <rect
           x="16"
-          y="286"
+          y="284"
           width="728"
-          height="58"
+          height="66"
           rx="10"
           fill="var(--ce-success-soft)"
           stroke="var(--ce-success-border)"
           stroke-width="1.5"
         />
-        <text x="34" y="310" font-size="11.5" font-weight="700" fill="var(--ce-success)" font-family="var(--font-mono)">
+        <text x="34" y="306" font-size="11" font-weight="700" fill="var(--ce-success)" font-family="var(--font-mono)">
           COMMIT-TIME GUARD: CONTRACT HASH + FENCING TOKEN CHECK
         </text>
-        <text x="34" y="330" font-size="11.5" fill="var(--ce-body)">
-          If a human edited the goal mid-flight (hash changed) or a newer attempt took over (higher token), the stale candidate is rejected cleanly before landing.
+        <text x="34" y="325" font-size="11" fill="var(--ce-body)">
+          If a human edited the goal mid-flight (hash changed) or a newer attempt took over (higher token),
+        </text>
+        <text x="34" y="341" font-size="11" fill="var(--ce-body)">
+          the stale candidate is rejected cleanly before landing.
         </text>
 
-        <path d="M 632 262 L 632 284" fill="none" stroke="var(--ce-success)" stroke-width="1.8" marker-end="url(#st-arrow-success)" />
-        <path d="M 128 286 L 128 264" fill="none" stroke="var(--ce-success)" stroke-width="1.8" marker-end="url(#st-arrow-success)" />
+        <path d="M 632 262 L 632 282" fill="none" stroke="var(--ce-success)" stroke-width="1.8" marker-end="url(#st-arrow-success)" />
+        <path d="M 128 284 L 128 264" fill="none" stroke="var(--ce-success)" stroke-width="1.8" marker-end="url(#st-arrow-success)" />
       </svg>
     </DiagramFrame>
   );
@@ -591,7 +594,7 @@ export function VerificationFunnelDiagram() {
           stroke-width="1.5"
           stroke-dasharray="5 3"
         />
-        <rect x="234" y="191" width="292" height="28" rx="14" fill="var(--ce-danger-soft)" stroke="var(--ce-danger-border)" />
+        <rect x="192" y="190" width="376" height="30" rx="15" fill="var(--ce-danger-soft)" stroke="var(--ce-danger-border)" />
         <text x="380" y="209" text-anchor="middle" font-size="11" font-weight="600" fill="var(--ce-danger)">
           Any failure returns structured evidence to a fresh attempt
         </text>
@@ -659,8 +662,8 @@ export function CulpritRollbackDiagram() {
         <circle cx="386" cy="248" r="18" fill="var(--ce-success-soft)" stroke="var(--ce-success)" stroke-width="2" />
         <text x="386" y="252" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ce-success)">A2&apos;</text>
 
-        <rect x="520" y="230" width="220" height="36" rx="8" fill="var(--ce-success-soft)" stroke="var(--ce-success-border)" />
-        <text x="630" y="252" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ce-success)">GREEN • A2 Spared • A1 Re-queued</text>
+        <rect x="492" y="230" width="252" height="36" rx="8" fill="var(--ce-success-soft)" stroke="var(--ce-success-border)" />
+        <text x="618" y="252" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--ce-success)">GREEN • A2 Spared • A1 Re-queued</text>
       </svg>
     </DiagramFrame>
   );
@@ -681,61 +684,61 @@ export function WatchdogRecoveryDiagram() {
         <ArrowDefs idPrefix="wd" />
 
         {/* Left: Orchestrator + Process Group */}
-        <rect x="16" y="34" width="240" height="242" rx="12" fill="var(--ce-panel)" stroke="var(--ce-accent)" stroke-width="1.5" />
-        <text x="32" y="58" font-size="10.5" font-weight="700" fill="var(--ce-accent)" font-family="var(--font-mono)">
+        <rect x="16" y="34" width="220" height="242" rx="12" fill="var(--ce-panel)" stroke="var(--ce-accent)" stroke-width="1.5" />
+        <text x="30" y="58" font-size="10" font-weight="700" fill="var(--ce-accent)" font-family="var(--font-mono)">
           ISOLATED PROCESS GROUP
         </text>
-        <rect x="32" y="72" width="208" height="58" rx="8" fill="var(--ce-page)" stroke="var(--ce-border-strong)" />
-        <text x="44" y="94" font-size="12" font-weight="700" fill="var(--ce-ink)">Watchdog Supervisor</text>
-        <text x="44" y="112" font-size="10.5" fill="var(--ce-body)">Owner-death signal + wall clock</text>
+        <rect x="30" y="72" width="192" height="58" rx="8" fill="var(--ce-page)" stroke="var(--ce-border-strong)" />
+        <text x="42" y="94" font-size="12" font-weight="700" fill="var(--ce-ink)">Watchdog Supervisor</text>
+        <text x="42" y="112" font-size="10.5" fill="var(--ce-body)">Owner-death + wall clock</text>
 
-        <line x1="136" y1="130" x2="136" y2="154" stroke="var(--ce-accent)" stroke-width="1.8" marker-end="url(#wd-arrow-accent)" />
+        <line x1="126" y1="130" x2="126" y2="154" stroke="var(--ce-accent)" stroke-width="1.8" marker-end="url(#wd-arrow-accent)" />
 
-        <rect x="32" y="156" width="208" height="104" rx="8" fill="var(--ce-page)" stroke="var(--ce-border-strong)" stroke-dasharray="4 3" />
-        <text x="44" y="178" font-size="12" font-weight="700" fill="var(--ce-ink)">Detached PGID (setsid)</text>
-        <text x="44" y="198" font-size="10.5" fill="var(--ce-body)">• Coding agent process</text>
-        <text x="44" y="215" font-size="10.5" fill="var(--ce-body)">• Test runners &amp; dev servers</text>
-        <text x="44" y="232" font-size="10.5" fill="var(--ce-body)">• Grandchild daemons</text>
-        <text x="44" y="250" font-size="10" font-weight="600" fill="var(--ce-danger)">SIGKILL kills entire tree</text>
+        <rect x="30" y="156" width="192" height="104" rx="8" fill="var(--ce-page)" stroke="var(--ce-border-strong)" stroke-dasharray="4 3" />
+        <text x="42" y="178" font-size="12" font-weight="700" fill="var(--ce-ink)">Detached PGID (setsid)</text>
+        <text x="42" y="198" font-size="10.5" fill="var(--ce-body)">• Coding agent process</text>
+        <text x="42" y="215" font-size="10.5" fill="var(--ce-body)">• Test runners &amp; servers</text>
+        <text x="42" y="232" font-size="10.5" fill="var(--ce-body)">• Grandchild daemons</text>
+        <text x="42" y="250" font-size="10" font-weight="600" fill="var(--ce-danger)">SIGKILL kills entire tree</text>
 
         {/* Right: 4 Failure Classifications */}
-        <rect x="320" y="16" width="424" height="60" rx="9" fill="var(--ce-warn-soft)" stroke="var(--ce-warn-border)" />
-        <text x="336" y="38" font-size="11.5" font-weight="700" fill="var(--ce-warn)" font-family="var(--font-mono)">
+        <rect x="284" y="16" width="460" height="60" rx="9" fill="var(--ce-warn-soft)" stroke="var(--ce-warn-border)" />
+        <text x="300" y="38" font-size="11" font-weight="700" fill="var(--ce-warn)" font-family="var(--font-mono)">
           1. LIVELOCK (BUSY, ZERO FILE DIFF)
         </text>
-        <text x="336" y="58" font-size="11.5" fill="var(--ce-body)">
-          Agent keeps talking or polling without editing files → terminate early &amp; rotate strategy.
+        <text x="300" y="57" font-size="10.5" fill="var(--ce-body)">
+          Agent keeps talking or polling without editing files → abort early &amp; rotate strategy.
         </text>
 
-        <rect x="320" y="88" width="424" height="60" rx="9" fill="var(--ce-accent-soft)" stroke="var(--ce-accent-border)" />
-        <text x="336" y="110" font-size="11.5" font-weight="700" fill="var(--ce-accent)" font-family="var(--font-mono)">
+        <rect x="284" y="88" width="460" height="60" rx="9" fill="var(--ce-accent-soft)" stroke="var(--ce-accent-border)" />
+        <text x="300" y="110" font-size="11" font-weight="700" fill="var(--ce-accent)" font-family="var(--font-mono)">
           2. NETWORK / PROVIDER OUTAGE
         </text>
-        <text x="336" y="130" font-size="11.5" fill="var(--ce-body)">
+        <text x="300" y="129" font-size="10.5" fill="var(--ce-body)">
           Park goal in waiting state with backoff — do NOT consume attempt retry budget.
         </text>
 
-        <rect x="320" y="160" width="424" height="60" rx="9" fill="var(--ce-purple-soft)" stroke="var(--ce-purple-border)" />
-        <text x="336" y="182" font-size="11.5" font-weight="700" fill="var(--ce-purple)" font-family="var(--font-mono)">
+        <rect x="284" y="160" width="460" height="60" rx="9" fill="var(--ce-purple-soft)" stroke="var(--ce-purple-border)" />
+        <text x="300" y="182" font-size="11" font-weight="700" fill="var(--ce-purple)" font-family="var(--font-mono)">
           3. REPEATED FAILURE SIGNATURE
         </text>
-        <text x="336" y="202" font-size="11.5" fill="var(--ce-body)">
-          Rotate strategy (narrow scope, switch model/prompt angle, or inspect evidence first).
+        <text x="300" y="201" font-size="10.5" fill="var(--ce-body)">
+          Rotate strategy (narrow scope, switch model/prompt angle, or inspect evidence).
         </text>
 
-        <rect x="320" y="232" width="424" height="60" rx="9" fill="var(--ce-danger-soft)" stroke="var(--ce-danger-border)" />
-        <text x="336" y="254" font-size="11.5" font-weight="700" fill="var(--ce-danger)" font-family="var(--font-mono)">
+        <rect x="284" y="232" width="460" height="60" rx="9" fill="var(--ce-danger-soft)" stroke="var(--ce-danger-border)" />
+        <text x="300" y="254" font-size="11" font-weight="700" fill="var(--ce-danger)" font-family="var(--font-mono)">
           4. A → B → A OSCILLATION / FILE REVERSAL
         </text>
-        <text x="336" y="274" font-size="11.5" fill="var(--ce-body)">
-          Detect repeating diff/failure hash cycles → stop thrashing and escalate to planner or human.
+        <text x="300" y="273" font-size="10.5" fill="var(--ce-body)">
+          Detect repeating diff/failure hash cycles → stop thrashing and escalate cleanly.
         </text>
 
         {/* Connecting branches */}
-        <path d="M 256 155 L 288 155 L 288 46 L 318 46" fill="none" stroke="var(--ce-muted)" stroke-width="1.6" marker-end="url(#wd-arrow)" />
-        <path d="M 288 118 L 318 118" fill="none" stroke="var(--ce-muted)" stroke-width="1.6" marker-end="url(#wd-arrow)" />
-        <path d="M 288 190 L 318 190" fill="none" stroke="var(--ce-muted)" stroke-width="1.6" marker-end="url(#wd-arrow)" />
-        <path d="M 288 155 L 288 262 L 318 262" fill="none" stroke="var(--ce-muted)" stroke-width="1.6" marker-end="url(#wd-arrow)" />
+        <path d="M 236 155 L 260 155 L 260 46 L 282 46" fill="none" stroke="var(--ce-muted)" stroke-width="1.6" marker-end="url(#wd-arrow)" />
+        <path d="M 260 118 L 282 118" fill="none" stroke="var(--ce-muted)" stroke-width="1.6" marker-end="url(#wd-arrow)" />
+        <path d="M 260 190 L 282 190" fill="none" stroke="var(--ce-muted)" stroke-width="1.6" marker-end="url(#wd-arrow)" />
+        <path d="M 260 155 L 260 262 L 282 262" fill="none" stroke="var(--ce-muted)" stroke-width="1.6" marker-end="url(#wd-arrow)" />
       </svg>
     </DiagramFrame>
   );
@@ -814,75 +817,75 @@ export function AmbitionSteeringDiagram() {
       <svg
         role="img"
         aria-label="Diagram of the ambition, steering, and self-improvement loop showing Ambition Document feeding a Read-Only Planner, Worker Pool, Non-Blocking Human Approval Queue, Cross-Task Failure Detector, and Metric-Gated Experiments."
-        viewBox="0 0 760 356"
+        viewBox="0 0 760 368"
         font-family="var(--font-sans)"
       >
         <ArrowDefs idPrefix="am" />
 
-        {/* Left Inputs */}
-        <rect x="16" y="24" width="186" height="72" rx="10" fill="var(--ce-accent-soft)" stroke="var(--ce-accent)" stroke-width="1.5" />
-        <text x="30" y="48" font-size="10.5" font-weight="700" fill="var(--ce-accent)" font-family="var(--font-mono)">HUMAN DIRECTION</text>
-        <text x="30" y="68" font-size="13" font-weight="700" fill="var(--ce-ink)">Ambition Document</text>
+        {/* Left Inputs (vertically symmetric around y=166) */}
+        <rect x="16" y="20" width="188" height="82" rx="10" fill="var(--ce-accent-soft)" stroke="var(--ce-accent)" stroke-width="1.5" />
+        <text x="30" y="45" font-size="10.5" font-weight="700" fill="var(--ce-accent)" font-family="var(--font-mono)">HUMAN DIRECTION</text>
+        <text x="30" y="66" font-size="13" font-weight="700" fill="var(--ce-ink)">Ambition Document</text>
         <text x="30" y="85" font-size="10.5" fill="var(--ce-body)">Outcomes, guardrails, taste</text>
 
-        <rect x="16" y="114" width="186" height="72" rx="10" fill="var(--ce-surface)" stroke="var(--ce-border-strong)" stroke-width="1.4" />
-        <text x="30" y="138" font-size="10.5" font-weight="700" fill="var(--ce-muted)" font-family="var(--font-mono)">LIVE REALITY</text>
-        <text x="30" y="158" font-size="13" font-weight="700" fill="var(--ce-ink)">Repo + Recent History</text>
-        <text x="30" y="175" font-size="10.5" fill="var(--ce-body)">Landed work, escalations</text>
+        <rect x="16" y="125" width="188" height="82" rx="10" fill="var(--ce-surface)" stroke="var(--ce-border-strong)" stroke-width="1.4" />
+        <text x="30" y="150" font-size="10.5" font-weight="700" fill="var(--ce-muted)" font-family="var(--font-mono)">LIVE REALITY</text>
+        <text x="30" y="171" font-size="13" font-weight="700" fill="var(--ce-ink)">Repo + Recent History</text>
+        <text x="30" y="190" font-size="10.5" fill="var(--ce-body)">Landed work, escalations</text>
 
-        <rect x="16" y="204" width="186" height="72" rx="10" fill="var(--ce-warn-soft)" stroke="var(--ce-warn-border)" stroke-width="1.4" />
-        <text x="30" y="228" font-size="10.5" font-weight="700" fill="var(--ce-warn)" font-family="var(--font-mono)">SYSTEM MEMORY</text>
-        <text x="30" y="248" font-size="13" font-weight="700" fill="var(--ce-ink)">Failure Signatures</text>
-        <text x="30" y="265" font-size="10.5" fill="var(--ce-body)">Recurring cross-task misses</text>
+        <rect x="16" y="230" width="188" height="82" rx="10" fill="var(--ce-warn-soft)" stroke="var(--ce-warn-border)" stroke-width="1.4" />
+        <text x="30" y="255" font-size="10.5" font-weight="700" fill="var(--ce-warn)" font-family="var(--font-mono)">SYSTEM MEMORY</text>
+        <text x="30" y="276" font-size="13" font-weight="700" fill="var(--ce-ink)">Failure Signatures</text>
+        <text x="30" y="295" font-size="10.5" fill="var(--ce-body)">Recurring cross-task misses</text>
 
-        {/* Center: Read-Only Planner */}
-        <rect x="256" y="84" width="194" height="132" rx="12" fill="var(--ce-purple-soft)" stroke="var(--ce-purple-border)" stroke-width="1.6" />
-        <text x="272" y="108" font-size="10.5" font-weight="700" fill="var(--ce-purple)" font-family="var(--font-mono)">READ-ONLY PLANNER</text>
-        <text x="272" y="130" font-size="13" font-weight="700" fill="var(--ce-ink)">Propose Next Goals</text>
-        <text x="272" y="150" font-size="11" fill="var(--ce-body)">• Next small vertical slice</text>
-        <text x="272" y="167" font-size="11" fill="var(--ce-body)">• Simplify / refactor / docs</text>
-        <text x="272" y="184" font-size="11" fill="var(--ce-body)">• Split escalated goals</text>
-        <text x="272" y="201" font-size="11" fill="var(--ce-body)">• Spawn self-fix goals</text>
+        {/* Center: Read-Only Planner (centered at y=166) */}
+        <rect x="258" y="96" width="194" height="140" rx="12" fill="var(--ce-purple-soft)" stroke="var(--ce-purple-border)" stroke-width="1.6" />
+        <text x="274" y="122" font-size="10.5" font-weight="700" fill="var(--ce-purple)" font-family="var(--font-mono)">READ-ONLY PLANNER</text>
+        <text x="274" y="144" font-size="13" font-weight="700" fill="var(--ce-ink)">Propose Next Goals</text>
+        <text x="274" y="165" font-size="11" fill="var(--ce-body)">• Next small vertical slice</text>
+        <text x="274" y="183" font-size="11" fill="var(--ce-body)">• Simplify / refactor / docs</text>
+        <text x="274" y="201" font-size="11" fill="var(--ce-body)">• Split escalated goals</text>
+        <text x="274" y="219" font-size="11" fill="var(--ce-body)">• Spawn self-fix goals</text>
 
-        {/* Arrows into Planner */}
-        <path d="M 202 60 L 230 60 L 230 124 L 254 124" fill="none" stroke="var(--ce-accent)" stroke-width="1.6" marker-end="url(#am-arrow-accent)" />
-        <line x1="202" y1="150" x2="254" y2="150" stroke="var(--ce-muted)" stroke-width="1.6" marker-end="url(#am-arrow)" />
-        <path d="M 202 240 L 230 240 L 230 178 L 254 178" fill="none" stroke="var(--ce-warn)" stroke-width="1.6" marker-end="url(#am-arrow-warn)" />
+        {/* Arrows into Planner (clean, non-overlapping) */}
+        <path d="M 204 61 L 231 61 L 231 132 L 256 132" fill="none" stroke="var(--ce-accent)" stroke-width="1.6" marker-end="url(#am-arrow-accent)" />
+        <line x1="204" y1="166" x2="256" y2="166" stroke="var(--ce-muted)" stroke-width="1.6" marker-end="url(#am-arrow)" />
+        <path d="M 204 271 L 231 271 L 231 200 L 256 200" fill="none" stroke="var(--ce-warn)" stroke-width="1.6" marker-end="url(#am-arrow-warn)" />
 
-        {/* Right: Execution & Two Special Gates */}
-        <rect x="508" y="24" width="236" height="90" rx="10" fill="var(--ce-page)" stroke="var(--ce-border-strong)" stroke-width="1.5" />
-        <text x="524" y="46" font-size="10.5" font-weight="700" fill="var(--ce-accent)" font-family="var(--font-mono)">NON-BLOCKING APPROVAL</text>
-        <text x="524" y="67" font-size="13" font-weight="700" fill="var(--ce-ink)">Human Review Queue</text>
-        <text x="524" y="86" font-size="11" fill="var(--ce-body)">Parks candidate, frees worker slot,</text>
-        <text x="524" y="102" font-size="11" fill="var(--ce-body)">accumulates feedback on reject</text>
+        {/* Right: Execution & Two Special Gates (vertically symmetric around y=166) */}
+        <rect x="506" y="20" width="238" height="84" rx="10" fill="var(--ce-page)" stroke="var(--ce-border-strong)" stroke-width="1.5" />
+        <text x="522" y="42" font-size="10.5" font-weight="700" fill="var(--ce-accent)" font-family="var(--font-mono)">NON-BLOCKING APPROVAL</text>
+        <text x="522" y="62" font-size="13" font-weight="700" fill="var(--ce-ink)">Human Review Queue</text>
+        <text x="522" y="80" font-size="10.5" fill="var(--ce-body)">Parks candidate, frees worker slot,</text>
+        <text x="522" y="95" font-size="10.5" fill="var(--ce-body)">accumulates feedback on reject</text>
 
-        <rect x="508" y="134" width="236" height="90" rx="10" fill="var(--ce-success-soft)" stroke="var(--ce-success-border)" stroke-width="1.5" />
-        <text x="524" y="156" font-size="10.5" font-weight="700" fill="var(--ce-success)" font-family="var(--font-mono)">METRIC-GATED EXPERIMENTS</text>
-        <text x="524" y="177" font-size="13" font-weight="700" fill="var(--ce-ink)">Keep Only Wins</text>
-        <text x="524" y="196" font-size="11" fill="var(--ce-body)">Measure baseline vs. candidate;</text>
-        <text x="524" y="212" font-size="11" fill="var(--ce-body)">land only if metric moves right</text>
+        <rect x="506" y="124" width="238" height="84" rx="10" fill="var(--ce-success-soft)" stroke="var(--ce-success-border)" stroke-width="1.5" />
+        <text x="522" y="146" font-size="10.5" font-weight="700" fill="var(--ce-success)" font-family="var(--font-mono)">METRIC-GATED EXPERIMENTS</text>
+        <text x="522" y="166" font-size="13" font-weight="700" fill="var(--ce-ink)">Keep Only Wins</text>
+        <text x="522" y="184" font-size="10.5" fill="var(--ce-body)">Measure baseline vs. candidate;</text>
+        <text x="522" y="199" font-size="10.5" fill="var(--ce-body)">land only if metric moves right</text>
 
-        <rect x="508" y="244" width="236" height="88" rx="10" fill="var(--ce-surface)" stroke="var(--ce-border-strong)" stroke-width="1.4" />
-        <text x="524" y="266" font-size="10.5" font-weight="700" fill="var(--ce-muted)" font-family="var(--font-mono)">CONTINUOUS WORKER POOL</text>
-        <text x="524" y="287" font-size="13" font-weight="700" fill="var(--ce-ink)">Independent Parallel Slots</text>
-        <text x="524" y="306" font-size="11" fill="var(--ce-body)">Keeps shipping ready goals while</text>
-        <text x="524" y="322" font-size="11" fill="var(--ce-body)">other changes await human review</text>
+        <rect x="506" y="228" width="238" height="84" rx="10" fill="var(--ce-surface)" stroke="var(--ce-border-strong)" stroke-width="1.4" />
+        <text x="522" y="250" font-size="10.5" font-weight="700" fill="var(--ce-muted)" font-family="var(--font-mono)">CONTINUOUS WORKER POOL</text>
+        <text x="522" y="270" font-size="13" font-weight="700" fill="var(--ce-ink)">Independent Parallel Slots</text>
+        <text x="522" y="288" font-size="10.5" fill="var(--ce-body)">Keeps shipping ready goals while</text>
+        <text x="522" y="303" font-size="10.5" fill="var(--ce-body)">other changes await human review</text>
 
-        {/* Arrows from Planner to Right */}
-        <path d="M 450 124 L 478 124 L 478 69 L 506 69" fill="none" stroke="var(--ce-accent)" stroke-width="1.6" marker-end="url(#am-arrow-accent)" />
-        <path d="M 450 150 L 478 150 L 478 179 L 506 179" fill="none" stroke="var(--ce-success)" stroke-width="1.6" marker-end="url(#am-arrow-success)" />
-        <path d="M 450 176 L 478 176 L 478 288 L 506 288" fill="none" stroke="var(--ce-muted)" stroke-width="1.6" marker-end="url(#am-arrow)" />
+        {/* Arrows from Planner to Right (strictly non-overlapping: up, straight, down) */}
+        <path d="M 452 132 L 479 132 L 479 62 L 504 62" fill="none" stroke="var(--ce-accent)" stroke-width="1.6" marker-end="url(#am-arrow-accent)" />
+        <line x1="452" y1="166" x2="504" y2="166" stroke="var(--ce-success)" stroke-width="1.6" marker-end="url(#am-arrow-success)" />
+        <path d="M 452 200 L 479 200 L 479 270 L 504 270" fill="none" stroke="var(--ce-muted)" stroke-width="1.6" marker-end="url(#am-arrow)" />
 
         {/* Feedback return line along bottom */}
         <path
-          d="M 508 310 L 109 310 L 109 278"
+          d="M 625 312 L 625 334 L 110 334 L 110 314"
           fill="none"
           stroke="var(--ce-muted)"
           stroke-width="1.5"
           stroke-dasharray="5 3"
           marker-end="url(#am-arrow)"
         />
-        <text x="292" y="328" text-anchor="middle" font-size="10.5" fill="var(--ce-muted)">
+        <text x="368" y="354" text-anchor="middle" font-size="10.5" fill="var(--ce-muted)">
           Outcomes, human feedback &amp; failure patterns feed the next planning pass
         </text>
       </svg>
@@ -910,14 +913,14 @@ export function MultiplayerSyncDiagram() {
         <text x="30" y="60" font-size="13" font-weight="700" fill="var(--ce-ink)">GitHub Issue</text>
         <text x="30" y="78" font-size="10.5" fill="var(--ce-body)">Rough idea or bug report</text>
 
-        <line x1="182" y1="55" x2="218" y2="55" stroke="var(--ce-accent)" stroke-width="1.8" marker-end="url(#mp-arrow-accent)" />
+        <line x1="182" y1="55" x2="210" y2="55" stroke="var(--ce-accent)" stroke-width="1.8" marker-end="url(#mp-arrow-accent)" />
 
-        <rect x="220" y="18" width="210" height="74" rx="10" fill="var(--ce-purple-soft)" stroke="var(--ce-purple-border)" stroke-width="1.5" />
-        <text x="234" y="40" font-size="10" font-weight="700" fill="var(--ce-purple)" font-family="var(--font-mono)">RESEARCHED PROPOSAL</text>
-        <text x="234" y="60" font-size="13" font-weight="700" fill="var(--ce-ink)">Single-Goal Pull Request</text>
-        <text x="234" y="78" font-size="10.5" fill="var(--ce-body)">Iterates on review; inactive till merge</text>
+        <rect x="212" y="18" width="224" height="74" rx="10" fill="var(--ce-purple-soft)" stroke="var(--ce-purple-border)" stroke-width="1.5" />
+        <text x="226" y="40" font-size="10" font-weight="700" fill="var(--ce-purple)" font-family="var(--font-mono)">RESEARCHED PROPOSAL</text>
+        <text x="226" y="60" font-size="13" font-weight="700" fill="var(--ce-ink)">Single-Goal Pull Request</text>
+        <text x="226" y="78" font-size="10.5" fill="var(--ce-body)">Iterates on review; inactive till merge</text>
 
-        <line x1="430" y1="55" x2="466" y2="55" stroke="var(--ce-success)" stroke-width="1.8" marker-end="url(#mp-arrow-success)" />
+        <line x1="436" y1="55" x2="466" y2="55" stroke="var(--ce-success)" stroke-width="1.8" marker-end="url(#mp-arrow-success)" />
 
         {/* Remote Git Origin */}
         <rect x="468" y="18" width="276" height="114" rx="12" fill="var(--ce-accent-soft)" stroke="var(--ce-accent)" stroke-width="1.8" />
@@ -953,7 +956,7 @@ export function MultiplayerSyncDiagram() {
           marker-start="url(#mp-arrow-success)"
           marker-end="url(#mp-arrow-success)"
         />
-        <rect x="242" y="152" width="234" height="26" rx="13" fill="var(--ce-success-soft)" stroke="var(--ce-success-border)" />
+        <rect x="224" y="151" width="270" height="28" rx="14" fill="var(--ce-success-soft)" stroke="var(--ce-success-border)" />
         <text x="359" y="169" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--ce-success)">
           CAS lease won • 3-way pull • FF push
         </text>
