@@ -26,7 +26,7 @@ export async function prerender(data?: { url?: string }) {
 
   const meta = getPageMeta(data?.url);
   const canonicalUrl = `${SITE_ORIGIN}${meta.canonicalPath}`;
-  const imageUrl = `${SITE_ORIGIN}${meta.image}`;
+  const imageUrl = `${SITE_ORIGIN}${meta.image}?v=2`;
 
   return {
     ...result,
