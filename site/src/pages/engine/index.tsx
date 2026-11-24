@@ -13,8 +13,8 @@ export function EngineIndex() {
         </p>
         <p>
           For the story behind the repeated attempts and lessons that shaped this guide, read{" "}
-          <a href="https://jonmagic.com/posts/trying-over-and-over-to-build-a-continuous-software-machine/">
-            Trying Over and Over to Build a Continuous Software Machine
+          <a href="https://jonmagic.com/posts/building-a-continuous-software-engine-the-hard-way/">
+            Building a Continuous Software Engine the Hard Way
           </a>
           .
         </p>
