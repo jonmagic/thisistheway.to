@@ -19,10 +19,10 @@ export function Home() {
             </li>
             <li>
               <a
-                href="/eng-loops"
+                href="/engine"
                 class="text-xl font-semibold text-blueprint-500 hover:text-blueprint-600 dark:text-blueprint-400 dark:hover:text-blueprint-300"
               >
-                Practice Continuous Agentic Engineering →
+                Build a Continuous Software Engine →
               </a>
             </li>
           </ul>

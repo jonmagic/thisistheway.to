@@ -11,7 +11,7 @@ export default defineConfig({
         previewMiddlewareEnabled: true,
         additionalPrerenderRoutes: [
           "/404",
-          ...["/factory", "/eng-loop"].flatMap((base) =>
+          ...["/factory", "/eng-loop", "/eng-loops"].flatMap((base) =>
             ["", "/start", "/recovery", "/repository", "/improvement", "/exploration"].map((suffix) => `${base}${suffix}`)
           ),
         ],

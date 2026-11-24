@@ -5,12 +5,12 @@ import { AIIndex } from "@/pages/ai/index";
 import { AIPrimitives } from "@/pages/ai/primitives";
 import { AIMissTaxonomy } from "@/pages/ai/miss-taxonomy";
 import { AIGraduation } from "@/pages/ai/graduation";
-import { AgentFactory } from "@/pages/AgentFactory";
-import { FactoryStart } from "@/pages/factory/start";
-import { FactoryRecovery } from "@/pages/factory/recover";
-import { FactoryRepository } from "@/pages/factory/repository";
-import { FactoryImprovement } from "@/pages/factory/improve";
-import { FactoryExploration } from "@/pages/factory/explore";
+import { EngineIndex } from "@/pages/engine/index";
+import { StateAndContractsPage } from "@/pages/engine/state-and-contracts";
+import { VerificationAndLandingPage } from "@/pages/engine/verification-and-landing";
+import { LivenessAndRecoveryPage } from "@/pages/engine/liveness-and-recovery";
+import { AmbitionAndSteeringPage } from "@/pages/engine/ambition-and-steering";
+import { MultiplayerCoordinationPage } from "@/pages/engine/multiplayer-coordination";
 import { GuideRedirect } from "@/pages/GuideRedirect";
 
 export function App() {
@@ -22,12 +22,18 @@ export function App() {
         <Route path="/ai/primitives" component={AIPrimitives} />
         <Route path="/ai/miss-taxonomy" component={AIMissTaxonomy} />
         <Route path="/ai/graduation" component={AIGraduation} />
-        <Route path="/eng-loops" component={AgentFactory} />
-        <Route path="/eng-loops/start" component={FactoryStart} />
-        <Route path="/eng-loops/recovery" component={FactoryRecovery} />
-        <Route path="/eng-loops/repository" component={FactoryRepository} />
-        <Route path="/eng-loops/improvement" component={FactoryImprovement} />
-        <Route path="/eng-loops/exploration" component={FactoryExploration} />
+        <Route path="/engine" component={EngineIndex} />
+        <Route path="/engine/state-and-contracts" component={StateAndContractsPage} />
+        <Route path="/engine/verification-and-landing" component={VerificationAndLandingPage} />
+        <Route path="/engine/liveness-and-recovery" component={LivenessAndRecoveryPage} />
+        <Route path="/engine/ambition-and-steering" component={AmbitionAndSteeringPage} />
+        <Route path="/engine/multiplayer-coordination" component={MultiplayerCoordinationPage} />
+        <Route path="/eng-loops" component={GuideRedirect} />
+        <Route path="/eng-loops/start" component={GuideRedirect} />
+        <Route path="/eng-loops/recovery" component={GuideRedirect} />
+        <Route path="/eng-loops/repository" component={GuideRedirect} />
+        <Route path="/eng-loops/improvement" component={GuideRedirect} />
+        <Route path="/eng-loops/exploration" component={GuideRedirect} />
         <Route path="/factory" component={GuideRedirect} />
         <Route path="/factory/start" component={GuideRedirect} />
         <Route path="/factory/recovery" component={GuideRedirect} />
