@@ -11,6 +11,13 @@ export function EngineIndex() {
         <p>
           Stop trying to make an AI finish a giant task in one great prompt. Build a deterministic engine around coding agents so your repository makes continuous, verified progress while you focus on direction and taste.
         </p>
+        <p>
+          For the story behind the repeated attempts and lessons that shaped this guide, read{" "}
+          <a href="https://jonmagic.com/posts/trying-over-and-over-to-build-a-continuous-software-machine/">
+            Trying Over and Over to Build a Continuous Software Machine
+          </a>
+          .
+        </p>
       </header>
 
       <Section id="the-shift">

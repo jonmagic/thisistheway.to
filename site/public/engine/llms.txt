@@ -4,6 +4,8 @@
 
 Stop trying to make an AI finish a giant task in one great prompt. Wrap fresh coding agent sessions inside a deterministic orchestrator that owns durable state, independent verification, crash and livelock recovery, non-blocking human steering, and Git-native multiplayer coordination.
 
+Companion story: [Trying Over and Over to Build a Continuous Software Machine](https://jonmagic.com/posts/trying-over-and-over-to-build-a-continuous-software-machine/)
+
 ## Core Ethos
 
 - The deterministic orchestrator owns the loop: ordinary software controls state transitions, leases, timeouts, retries, and landing.
