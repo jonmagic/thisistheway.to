@@ -41,7 +41,7 @@ export function EngineIndex() {
           Why call it an <strong>engine</strong> instead of a factory? A factory optimizes for stamping out identical copies of the same widget. Software work is the opposite: every bug fix, vertical slice, refactor, and experiment is unique. You want the consistency, speed, and safety of a reliable machine—without pretending software development is an assembly line.
         </p>
         <p>
-          The key insight is counterintuitive: <strong>making an AI system more autonomous requires making the loop around it less magical and more boring.</strong> Coding agents excel at reading a codebase, implementing a focused change, and diagnosing a failing test. They are terrible at being their own scheduler, lock manager, process supervisor, and final judge.
+          The key insight is counterintuitive: <strong>making an AI system more autonomous requires making the loop around it less magical and more boring.</strong> Coding agents excel at reading a codebase, implementing a focused change, and diagnosing a failing test. They are terrible at being their own scheduler, lock manager, process supervisor, or sole judge of their own work. Deterministic code should own the loop and its hard checks, while judging intent belongs to a fresh-context independent reviewer—or a human.
         </p>
         <p>
           This guide teaches the core primitives of a continuous software engine conceptually—no framework lock-in and no giant code dumps. Scan this overview in a minute to grasp the whole machine, then dive into each chapter to learn how to build each primitive, what breaks when you skip it, and how to verify you built it right.
