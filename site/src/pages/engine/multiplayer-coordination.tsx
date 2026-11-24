@@ -9,34 +9,46 @@ export function MultiplayerCoordinationPage() {
         <p class="ce-eyebrow">Chapter 05 • Teams &amp; Multiple Machines</p>
         <h1>Multiplayer &amp; Multi-Machine Coordination</h1>
         <p>
-          Eventually you want more than one laptop running the engine—or a whole team feeding goals into the same repository alongside human commits. You do not need to deploy a distributed coordinator service to get there; Git already gives you the primitives you need.
+          Eventually you want more than one laptop running the engine—or a whole team feeding goals into the same repository alongside human commits. You do not need a central coordinator database or a single hard-wired ticketing workflow to get there; Git already gives you the shared primitives you need.
         </p>
       </header>
 
       <Section id="git-native-multiplayer">
         <h2>Sharing One Repository Across Humans and Machines</h2>
         <p>
-          Because Chapter 1 put goal contracts and landed trailers in Git rather than a private database, multiplayer starts from a massive advantage: teammates and multiple machines already share the same source of truth. Humans can push ordinary commits to <code>main</code> at any moment, and every engine instance rebases safely onto teammate work before landing.
+          Because Chapter 1 put goal contracts and landed trailers in Git rather than a private database, multiplayer starts from a major advantage: teammates and multiple machines already share the same source of truth. Humans can push ordinary commits to <code>main</code> at any moment, and every engine instance rebases safely onto teammate work before landing.
         </p>
         <p>
-          To scale cleanly from one workstation to a team, add three coordination layers on top of the remote Git host: issue-to-PR intake, bidirectional remote sync, and atomic remote ref leases.
+          To scale cleanly from one workstation to a team, add three coordination layers on top of the remote Git host: pluggable admission transports, bidirectional remote sync, and atomic remote ref leases.
         </p>
 
         <MultiplayerSyncDiagram />
       </Section>
 
-      <Section id="issue-to-pr-intake">
-        <h2>Turning Rough Issues into Researched Single-Goal PRs</h2>
+      <Section id="pluggable-intake">
+        <h2>Pluggable Admission Transports (Keep Policy Out of Your Host)</h2>
         <p>
-          Teammates should not have to hand-craft perfect goal contracts to feed the engine. Let anyone file an ordinary GitHub issue describing a rough bug, idea, or pain point.
+          Keep the engine’s core completely agnostic about <em>where</em> teammates propose work. Every collaborative workflow—whether a CLI command, a design-doc pull request, a Slack command, or an issue tracker—should act as a thin <strong>pluggable intake adapter</strong> that writes a standard Markdown goal or objective contract into the same Git queue governed by Chapter 4’s admission policy.
         </p>
-        <p>
-          An intake pass picks up labeled issues, researches the codebase, and opens a <strong>single-goal Pull Request</strong> that adds only the proposed Markdown goal contract—not speculative code changes.
-        </p>
+
+        <div class="ce-grid-2">
+          <div class="ce-card">
+            <h3 class="ce-card-title">Pattern: Ticket → Researched Proposal PR</h3>
+            <p>
+              One popular implementation of the <strong>human-gated</strong> tier: an adapter reads a rough ticket or issue, researches the codebase, and opens a proposal PR containing only the objective or goal contract—iterating on review comments and activating work only once a human merges it.
+            </p>
+          </div>
+          <div class="ce-card">
+            <h3 class="ce-card-title">Other Valid Transports</h3>
+            <p>
+              Another team might commit an approved objective directly via CLI, merge an RFC Markdown file, or sync from an internal tracker. Because Git holds the contract, swapping or combining adapters never touches the orchestrator core.
+            </p>
+          </div>
+        </div>
+
         <ul>
-          <li><strong>Review before execution.</strong> Teammates review the scope, acceptance criteria, and non-goals on the PR. If someone leaves review comments, the intake agent updates the goal contract on that PR branch.</li>
-          <li><strong>Merge is the activation switch.</strong> The engine ignores unmerged goal PRs. Only after a human merges the PR onto <code>main</code> does the goal become eligible for autonomous execution.</li>
-          <li><strong>Deduplicated issue updates.</strong> As the goal moves through execution, escalation, or landing, post concise status notices back to the originating issue—keyed by run or event markers so multiple machines or retries never spam duplicate comments.</li>
+          <li><strong>Approve the objective, not every slice.</strong> Even when a team uses proposal PRs for new ambiguous requests, merge the <em>objective</em> once and let Chapter 4’s just-in-time decomposer auto-admit the bounded vertical slices underneath it—instead of forcing teammates to rubber-stamp ten tiny PRs for one feature.</li>
+          <li><strong>Deduplicated status callbacks.</strong> If an intake adapter mirrors lifecycle notices (started, escalated, landed) back to an external ticket or thread, key every callback by run or event marker so retries and multiple peer machines never post duplicate updates.</li>
         </ul>
       </Section>
 
@@ -95,10 +107,10 @@ export function MultiplayerCoordinationPage() {
       <div class="ce-checkpoint">
         <p class="ce-box-label">How to Know You Built It Right</p>
         <ul>
-          <li>Filing a rough issue opens a single-goal PR that iterates on human review feedback and never executes until a human merges it.</li>
+          <li>Teammates can feed work through any intake adapter (CLI, design doc PR, or issue tracker) into the exact same Git contract queue without modifying the orchestrator core.</li>
+          <li>Human-gated proposals iterate on feedback and remain inactive until admitted, while slices under an already-approved objective run autonomously without per-slice approval drag.</li>
           <li>Starting two machines against the same ready goal causes one to win the CAS remote ref push while the other skips immediately to a different goal.</li>
-          <li>Killing the winning machine allows a peer to reclaim the goal automatically after TTL plus clock-skew margin—and if the original machine later wakes up with a finished branch, landing-time commit trailer deduplication prevents duplicate work from landing.</li>
-          <li>Every sync push is strictly fast-forward-only, and human commits pushed concurrently to <code>main</code> are preserved intact.</li>
+          <li>Killing the winning machine lets a peer reclaim after TTL plus clock-skew margin—and if the original machine wakes up later, landing-time trailer deduplication prevents duplicate work from landing on a strictly fast-forward-only remote branch.</li>
         </ul>
       </div>
     </EngineLayout>

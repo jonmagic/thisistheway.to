@@ -109,7 +109,7 @@ const ROUTE_META: Record<string, PageMeta> = {
     title: "4. Ambition, Self-Improvement & Human Steering | ThisIsTheWay.to",
     ogTitle: "4. Ambition, Self-Improvement & Human Steering",
     description:
-      "Keep ambitious work moving without babysitting via non-blocking approval queues, a read-only planner guided by an ambition doc, recurring-failure self-improvement, and metric-gated experiments.",
+      "Unify Intent, Just-in-Time Decomposition, Tiered Admission (auto vs. human-gated), non-blocking approval parking, recurring-failure repairs, and metric-gated experiments.",
     image: "/og/engine-ambition.png",
     imageAlt: "Chapter 04: Ambition, Self-Improvement & Human Steering",
     type: "article",
@@ -119,7 +119,7 @@ const ROUTE_META: Record<string, PageMeta> = {
     title: "5. Multiplayer & Multi-Machine Coordination | ThisIsTheWay.to",
     ogTitle: "5. Multiplayer & Multi-Machine Coordination",
     description:
-      "Share a continuous software engine across teammates and laptops with issue-to-PR intake, bidirectional 3-way sync, atomic remote Git ref leases, and landing-time trailer deduplication.",
+      "Share a continuous software engine across teammates and laptops with pluggable admission transports, bidirectional 3-way sync, atomic remote Git ref leases, and landing-time trailer deduplication.",
     image: "/og/engine-multiplayer.png",
     imageAlt: "Chapter 05: Multiplayer & Multi-Machine Coordination",
     type: "article",

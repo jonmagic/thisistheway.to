@@ -97,7 +97,7 @@ export function EngineIndex() {
       <Section id="architecture">
         <h2>How the Engine Runs</h2>
         <p>
-          At altitude, the engine is a deterministic pipeline backed by two durable stores. Shared Git holds the source of truth—goals, ambition, and landed commits—while a local transactional ledger tracks transient leases, attempt counters, and raw run evidence.
+          At altitude, the engine is a deterministic pipeline backed by two durable stores. Shared Git holds the source of truth—approved objectives, goal contracts, and landed commits—while a local transactional ledger tracks transient leases, attempt counters, and raw run evidence. Broad intent enters through just-in-time decomposition and tiered admission so bounded slices run autonomously while ambiguous or high-risk boundaries pause cleanly for human judgment.
         </p>
 
         <OverviewArchitectureDiagram />

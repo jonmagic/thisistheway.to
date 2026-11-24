@@ -278,7 +278,7 @@ export function OverviewArchitectureDiagram() {
           AMBITION &amp; NON-BLOCKING HUMAN STEERING
         </text>
         <text x="398" y="227" font-size="11" fill="var(--ce-body)">
-          Read-only planner • Approval queue • Self-improvement goals
+          JIT decomposition • Tiered admission • Non-blocking review
         </text>
 
         {/* Arrows from Verify/Land back to Recovery & Steering */}
@@ -315,7 +315,7 @@ export function OverviewArchitectureDiagram() {
           Goal Markdown files • Ambition doc • Commit trailers
         </text>
         <text x="34" y="360" font-size="11.5" fill="var(--ce-body)">
-          Atomic remote ref leases • Pull Requests &amp; issues
+          Atomic remote ref leases • Pluggable intake adapters
         </text>
 
         <rect
@@ -813,80 +813,96 @@ export function SchedulerLivenessDiagram() {
  */
 export function AmbitionSteeringDiagram() {
   return (
-    <DiagramFrame caption="A read-only planner turns an ambition document and live repository history into small vertical slices. Human approvals park outside worker slots so throughput never stalls, recurring failures spawn self-improvement goals, and experiments only land when their target metric improves.">
+    <DiagramFrame caption="One unified steering pipeline turns complicated requirements into steady progress: approve an objective once, decompose it just-in-time into the next 1–2 small vertical slices, route each slice through tiered admission (auto vs. human-gated), and feed real discoveries from Slice 1 into Slice 2.">
       <svg
         role="img"
-        aria-label="Diagram of the ambition, steering, and self-improvement loop showing Ambition Document feeding a Read-Only Planner, Worker Pool, Non-Blocking Human Approval Queue, Cross-Task Failure Detector, and Metric-Gated Experiments."
-        viewBox="0 0 760 368"
+        aria-label="Diagram of the unified Intent to Just-in-Time Decomposition to Tiered Admission to Verified Execution pipeline, showing approved objectives, repo history, and failure signals feeding a read-only decomposer, auto-admit and human-gated admission tiers, verified execution, non-blocking approval parking, and feedback returning for the next slice."
+        viewBox="0 0 760 364"
         font-family="var(--font-sans)"
       >
         <ArrowDefs idPrefix="am" />
 
-        {/* Left Inputs (vertically symmetric around y=166) */}
-        <rect x="16" y="20" width="188" height="82" rx="10" fill="var(--ce-accent-soft)" stroke="var(--ce-accent)" stroke-width="1.5" />
-        <text x="30" y="45" font-size="10.5" font-weight="700" fill="var(--ce-accent)" font-family="var(--font-mono)">HUMAN DIRECTION</text>
-        <text x="30" y="66" font-size="13" font-weight="700" fill="var(--ce-ink)">Ambition Document</text>
-        <text x="30" y="85" font-size="10.5" fill="var(--ce-body)">Outcomes, guardrails, taste</text>
+        {/* Column 1: Intent & Signals */}
+        <rect x="16" y="20" width="166" height="76" rx="10" fill="var(--ce-accent-soft)" stroke="var(--ce-accent)" stroke-width="1.5" />
+        <text x="28" y="42" font-size="9.5" font-weight="700" fill="var(--ce-accent)" font-family="var(--font-mono)">APPROVED INTENT</text>
+        <text x="28" y="61" font-size="12" font-weight="700" fill="var(--ce-ink)">Ambition &amp; Specs</text>
+        <text x="28" y="79" font-size="10" fill="var(--ce-body)">Broad objectives, guardrails</text>
 
-        <rect x="16" y="125" width="188" height="82" rx="10" fill="var(--ce-surface)" stroke="var(--ce-border-strong)" stroke-width="1.4" />
-        <text x="30" y="150" font-size="10.5" font-weight="700" fill="var(--ce-muted)" font-family="var(--font-mono)">LIVE REALITY</text>
-        <text x="30" y="171" font-size="13" font-weight="700" fill="var(--ce-ink)">Repo + Recent History</text>
-        <text x="30" y="190" font-size="10.5" fill="var(--ce-body)">Landed work, escalations</text>
+        <rect x="16" y="114" width="166" height="76" rx="10" fill="var(--ce-surface)" stroke="var(--ce-border-strong)" stroke-width="1.4" />
+        <text x="28" y="136" font-size="9.5" font-weight="700" fill="var(--ce-muted)" font-family="var(--font-mono)">LIVE REALITY</text>
+        <text x="28" y="155" font-size="12" font-weight="700" fill="var(--ce-ink)">Repo &amp; Landed Work</text>
+        <text x="28" y="173" font-size="10" fill="var(--ce-body)">Slice 1 findings shape Slice 2</text>
 
-        <rect x="16" y="230" width="188" height="82" rx="10" fill="var(--ce-warn-soft)" stroke="var(--ce-warn-border)" stroke-width="1.4" />
-        <text x="30" y="255" font-size="10.5" font-weight="700" fill="var(--ce-warn)" font-family="var(--font-mono)">SYSTEM MEMORY</text>
-        <text x="30" y="276" font-size="13" font-weight="700" fill="var(--ce-ink)">Failure Signatures</text>
-        <text x="30" y="295" font-size="10.5" fill="var(--ce-body)">Recurring cross-task misses</text>
+        <rect x="16" y="208" width="166" height="76" rx="10" fill="var(--ce-warn-soft)" stroke="var(--ce-warn-border)" stroke-width="1.4" />
+        <text x="28" y="230" font-size="9.5" font-weight="700" fill="var(--ce-warn)" font-family="var(--font-mono)">FAILURE SIGNALS</text>
+        <text x="28" y="249" font-size="12" font-weight="700" fill="var(--ce-ink)">Escalations &amp; Misses</text>
+        <text x="28" y="267" font-size="10" fill="var(--ce-body)">Splits &amp; recurring repairs</text>
 
-        {/* Center: Read-Only Planner (centered at y=166) */}
-        <rect x="258" y="96" width="194" height="140" rx="12" fill="var(--ce-purple-soft)" stroke="var(--ce-purple-border)" stroke-width="1.6" />
-        <text x="274" y="122" font-size="10.5" font-weight="700" fill="var(--ce-purple)" font-family="var(--font-mono)">READ-ONLY PLANNER</text>
-        <text x="274" y="144" font-size="13" font-weight="700" fill="var(--ce-ink)">Propose Next Goals</text>
-        <text x="274" y="165" font-size="11" fill="var(--ce-body)">• Next small vertical slice</text>
-        <text x="274" y="183" font-size="11" fill="var(--ce-body)">• Simplify / refactor / docs</text>
-        <text x="274" y="201" font-size="11" fill="var(--ce-body)">• Split escalated goals</text>
-        <text x="274" y="219" font-size="11" fill="var(--ce-body)">• Spawn self-fix goals</text>
+        {/* Column 2: Read-Only JIT Decomposer */}
+        <rect x="214" y="70" width="160" height="164" rx="12" fill="var(--ce-purple-soft)" stroke="var(--ce-purple-border)" stroke-width="1.6" />
+        <text x="226" y="94" font-size="9.5" font-weight="700" fill="var(--ce-purple)" font-family="var(--font-mono)">JIT DECOMPOSER</text>
+        <text x="226" y="114" font-size="12.5" font-weight="700" fill="var(--ce-ink)">Next 1–2 Slices</text>
+        <text x="226" y="135" font-size="10" fill="var(--ce-body)">• Read-only planner</text>
+        <text x="226" y="153" font-size="10" fill="var(--ce-body)">• Small vertical slices</text>
+        <text x="226" y="171" font-size="10" fill="var(--ce-body)">• Simplify &amp; doc passes</text>
+        <text x="226" y="189" font-size="10" fill="var(--ce-body)">• Split stalled goals</text>
+        <text x="226" y="207" font-size="10" fill="var(--ce-body)">• Self-fix from patterns</text>
 
-        {/* Arrows into Planner (clean, non-overlapping) */}
-        <path d="M 204 61 L 231 61 L 231 132 L 256 132" fill="none" stroke="var(--ce-accent)" stroke-width="1.6" marker-end="url(#am-arrow-accent)" />
-        <line x1="204" y1="166" x2="256" y2="166" stroke="var(--ce-muted)" stroke-width="1.6" marker-end="url(#am-arrow)" />
-        <path d="M 204 271 L 231 271 L 231 200 L 256 200" fill="none" stroke="var(--ce-warn)" stroke-width="1.6" marker-end="url(#am-arrow-warn)" />
+        {/* Arrows Col 1 -> Col 2 (non-overlapping) */}
+        <path d="M 182 58 L 198 58 L 198 112 L 212 112" fill="none" stroke="var(--ce-accent)" stroke-width="1.6" marker-end="url(#am-arrow-accent)" />
+        <line x1="182" y1="152" x2="212" y2="152" stroke="var(--ce-muted)" stroke-width="1.6" marker-end="url(#am-arrow)" />
+        <path d="M 182 246 L 198 246 L 198 192 L 212 192" fill="none" stroke="var(--ce-warn)" stroke-width="1.6" marker-end="url(#am-arrow-warn)" />
 
-        {/* Right: Execution & Two Special Gates (vertically symmetric around y=166) */}
-        <rect x="506" y="20" width="238" height="84" rx="10" fill="var(--ce-page)" stroke="var(--ce-border-strong)" stroke-width="1.5" />
-        <text x="522" y="42" font-size="10.5" font-weight="700" fill="var(--ce-accent)" font-family="var(--font-mono)">NON-BLOCKING APPROVAL</text>
-        <text x="522" y="62" font-size="13" font-weight="700" fill="var(--ce-ink)">Human Review Queue</text>
-        <text x="522" y="80" font-size="10.5" fill="var(--ce-body)">Parks candidate, frees worker slot,</text>
-        <text x="522" y="95" font-size="10.5" fill="var(--ce-body)">accumulates feedback on reject</text>
+        {/* Column 3: Tiered Admission Policy */}
+        <rect x="406" y="20" width="164" height="114" rx="10" fill="var(--ce-success-soft)" stroke="var(--ce-success-border)" stroke-width="1.5" />
+        <text x="418" y="42" font-size="9.5" font-weight="700" fill="var(--ce-success)" font-family="var(--font-mono)">ADMISSION: AUTO</text>
+        <text x="418" y="61" font-size="12" font-weight="700" fill="var(--ce-ink)">Auto-Admit Slices</text>
+        <text x="418" y="80" font-size="10" fill="var(--ce-body)">Under approved objective,</text>
+        <text x="418" y="95" font-size="10" fill="var(--ce-body)">refactors &amp; self-fixes;</text>
+        <text x="418" y="110" font-size="10" fill="var(--ce-body)">contract + spec check</text>
 
-        <rect x="506" y="124" width="238" height="84" rx="10" fill="var(--ce-success-soft)" stroke="var(--ce-success-border)" stroke-width="1.5" />
-        <text x="522" y="146" font-size="10.5" font-weight="700" fill="var(--ce-success)" font-family="var(--font-mono)">METRIC-GATED EXPERIMENTS</text>
-        <text x="522" y="166" font-size="13" font-weight="700" fill="var(--ce-ink)">Keep Only Wins</text>
-        <text x="522" y="184" font-size="10.5" fill="var(--ce-body)">Measure baseline vs. candidate;</text>
-        <text x="522" y="199" font-size="10.5" fill="var(--ce-body)">land only if metric moves right</text>
+        <rect x="406" y="170" width="164" height="114" rx="10" fill="var(--ce-page)" stroke="var(--ce-accent)" stroke-width="1.5" />
+        <text x="418" y="192" font-size="9.5" font-weight="700" fill="var(--ce-accent)" font-family="var(--font-mono)">ADMISSION: HUMAN</text>
+        <text x="418" y="211" font-size="12" font-weight="700" fill="var(--ce-ink)">Human-Gated</text>
+        <text x="418" y="230" font-size="10" fill="var(--ce-body)">New ambiguous asks,</text>
+        <text x="418" y="245" font-size="10" fill="var(--ce-body)">scope shifts, or high-</text>
+        <text x="418" y="260" font-size="10" fill="var(--ce-body)">risk boundaries</text>
 
-        <rect x="506" y="228" width="238" height="84" rx="10" fill="var(--ce-surface)" stroke="var(--ce-border-strong)" stroke-width="1.4" />
-        <text x="522" y="250" font-size="10.5" font-weight="700" fill="var(--ce-muted)" font-family="var(--font-mono)">CONTINUOUS WORKER POOL</text>
-        <text x="522" y="270" font-size="13" font-weight="700" fill="var(--ce-ink)">Independent Parallel Slots</text>
-        <text x="522" y="288" font-size="10.5" fill="var(--ce-body)">Keeps shipping ready goals while</text>
-        <text x="522" y="303" font-size="10.5" fill="var(--ce-body)">other changes await human review</text>
+        {/* Arrows Col 2 -> Col 3 (cleanly separated) */}
+        <path d="M 374 122 L 390 122 L 390 77 L 404 77" fill="none" stroke="var(--ce-success)" stroke-width="1.6" marker-end="url(#am-arrow-success)" />
+        <path d="M 374 182 L 390 182 L 390 227 L 404 227" fill="none" stroke="var(--ce-accent)" stroke-width="1.6" marker-end="url(#am-arrow-accent)" />
 
-        {/* Arrows from Planner to Right (strictly non-overlapping: up, straight, down) */}
-        <path d="M 452 132 L 479 132 L 479 62 L 504 62" fill="none" stroke="var(--ce-accent)" stroke-width="1.6" marker-end="url(#am-arrow-accent)" />
-        <line x1="452" y1="166" x2="504" y2="166" stroke="var(--ce-success)" stroke-width="1.6" marker-end="url(#am-arrow-success)" />
-        <path d="M 452 200 L 479 200 L 479 270 L 504 270" fill="none" stroke="var(--ce-muted)" stroke-width="1.6" marker-end="url(#am-arrow)" />
+        {/* Column 4: Execution & Non-Blocking Landing Park */}
+        <rect x="602" y="20" width="142" height="114" rx="10" fill="var(--ce-surface)" stroke="var(--ce-border-strong)" stroke-width="1.5" />
+        <text x="614" y="42" font-size="9.5" font-weight="700" fill="var(--ce-muted)" font-family="var(--font-mono)">EXECUTE</text>
+        <text x="614" y="61" font-size="12" font-weight="700" fill="var(--ce-ink)">Worker Pool</text>
+        <text x="614" y="80" font-size="10" fill="var(--ce-body)">Verified build &amp; land,</text>
+        <text x="614" y="95" font-size="10" fill="var(--ce-body)">plus metric-gated</text>
+        <text x="614" y="110" font-size="10" fill="var(--ce-body)">experiments</text>
 
-        {/* Feedback return line along bottom */}
+        <rect x="602" y="170" width="142" height="114" rx="10" fill="var(--ce-purple-soft)" stroke="var(--ce-purple-border)" stroke-width="1.5" />
+        <text x="614" y="192" font-size="9.5" font-weight="700" fill="var(--ce-purple)" font-family="var(--font-mono)">NON-BLOCKING</text>
+        <text x="614" y="211" font-size="12" font-weight="700" fill="var(--ce-ink)">Approval Park</text>
+        <text x="614" y="230" font-size="10" fill="var(--ce-body)">High-risk landings</text>
+        <text x="614" y="245" font-size="10" fill="var(--ce-body)">park; slots stay free;</text>
+        <text x="614" y="260" font-size="10" fill="var(--ce-body)">feedback accumulates</text>
+
+        {/* Arrows Col 3 -> Col 4 */}
+        <line x1="570" y1="77" x2="600" y2="77" stroke="var(--ce-success)" stroke-width="1.6" marker-end="url(#am-arrow-success)" />
+        <line x1="570" y1="227" x2="600" y2="227" stroke="var(--ce-accent)" stroke-width="1.6" marker-end="url(#am-arrow-accent)" />
+        <line x1="673" y1="134" x2="673" y2="168" stroke="var(--ce-muted)" stroke-width="1.5" marker-end="url(#am-arrow)" />
+
+        {/* Bottom Feedback Loop */}
         <path
-          d="M 625 312 L 625 334 L 110 334 L 110 314"
+          d="M 673 284 L 673 324 L 99 324 L 99 286"
           fill="none"
           stroke="var(--ce-muted)"
           stroke-width="1.5"
           stroke-dasharray="5 3"
           marker-end="url(#am-arrow)"
         />
-        <text x="368" y="354" text-anchor="middle" font-size="10.5" fill="var(--ce-muted)">
-          Outcomes, human feedback &amp; failure patterns feed the next planning pass
+        <text x="386" y="346" text-anchor="middle" font-size="10.5" fill="var(--ce-muted)">
+          Slice discoveries, accumulated human feedback &amp; failure patterns inform the next decomposition pass
         </text>
       </svg>
     </DiagramFrame>
@@ -898,37 +914,39 @@ export function AmbitionSteeringDiagram() {
  */
 export function MultiplayerSyncDiagram() {
   return (
-    <DiagramFrame caption="Multiple laptops share one repository without a central database: GitHub issues enter as researched single-goal PRs that activate only on human merge, machines claim work via atomic compare-and-swap Git ref leases, and landing-time trailer checks prevent duplicate work even after lease expiry.">
+    <DiagramFrame caption="Multiple laptops share one repository without a central database: pluggable intake adapters feed the same Git goal queue through tiered admission (approve an objective once, or gate ambiguous work via PR/CLI/tracker), machines claim work with atomic compare-and-swap Git ref leases, and landing-time trailer checks prevent duplicates.">
       <svg
         role="img"
-        aria-label="Diagram of multiplayer and multi-machine coordination showing GitHub Issue to Single-Goal PR intake, Remote Git Repository holding main and atomic ref leases, two laptops racing with compare-and-swap leases, and bidirectional three-way sync."
+        aria-label="Diagram of multiplayer and multi-machine coordination showing Pluggable Intake Adapters feeding an Admission Boundary into a Remote Git Origin holding main and atomic ref leases, with two peer machines coordinating via compare-and-swap leases and bidirectional three-way sync."
         viewBox="0 0 760 364"
         font-family="var(--font-sans)"
       >
         <ArrowDefs idPrefix="mp" />
 
-        {/* Top Row: Issue -> Research PR -> Human Merge -> Remote Repo */}
-        <rect x="16" y="18" width="166" height="74" rx="10" fill="var(--ce-surface)" stroke="var(--ce-border-strong)" stroke-width="1.4" />
-        <text x="30" y="40" font-size="10" font-weight="700" fill="var(--ce-muted)" font-family="var(--font-mono)">TEAM INTAKE</text>
-        <text x="30" y="60" font-size="13" font-weight="700" fill="var(--ce-ink)">GitHub Issue</text>
-        <text x="30" y="78" font-size="10.5" fill="var(--ce-body)">Rough idea or bug report</text>
+        {/* Top Row: Pluggable Intake -> Admission Boundary -> Remote Origin */}
+        <rect x="16" y="18" width="184" height="84" rx="10" fill="var(--ce-surface)" stroke="var(--ce-border-strong)" stroke-width="1.4" />
+        <text x="28" y="40" font-size="9.5" font-weight="700" fill="var(--ce-muted)" font-family="var(--font-mono)">PLUGGABLE INTAKE</text>
+        <text x="28" y="60" font-size="12.5" font-weight="700" fill="var(--ce-ink)">Any Team Surface</text>
+        <text x="28" y="78" font-size="10" fill="var(--ce-body)">Tickets, design docs, CLI,</text>
+        <text x="28" y="92" font-size="10" fill="var(--ce-body)">or proposal PRs</text>
 
-        <line x1="182" y1="55" x2="210" y2="55" stroke="var(--ce-accent)" stroke-width="1.8" marker-end="url(#mp-arrow-accent)" />
+        <line x1="200" y1="60" x2="226" y2="60" stroke="var(--ce-accent)" stroke-width="1.8" marker-end="url(#mp-arrow-accent)" />
 
-        <rect x="212" y="18" width="224" height="74" rx="10" fill="var(--ce-purple-soft)" stroke="var(--ce-purple-border)" stroke-width="1.5" />
-        <text x="226" y="40" font-size="10" font-weight="700" fill="var(--ce-purple)" font-family="var(--font-mono)">RESEARCHED PROPOSAL</text>
-        <text x="226" y="60" font-size="13" font-weight="700" fill="var(--ce-ink)">Single-Goal Pull Request</text>
-        <text x="226" y="78" font-size="10.5" fill="var(--ce-body)">Iterates on review; inactive till merge</text>
+        <rect x="228" y="18" width="206" height="84" rx="10" fill="var(--ce-purple-soft)" stroke="var(--ce-purple-border)" stroke-width="1.5" />
+        <text x="240" y="40" font-size="9.5" font-weight="700" fill="var(--ce-purple)" font-family="var(--font-mono)">TIERED ADMISSION</text>
+        <text x="240" y="60" font-size="12.5" font-weight="700" fill="var(--ce-ink)">Goal Contract Queue</text>
+        <text x="240" y="78" font-size="10" fill="var(--ce-body)">Approve objective once;</text>
+        <text x="240" y="92" font-size="10" fill="var(--ce-body)">slices auto-admit or gate</text>
 
-        <line x1="436" y1="55" x2="466" y2="55" stroke="var(--ce-success)" stroke-width="1.8" marker-end="url(#mp-arrow-success)" />
+        <line x1="434" y1="60" x2="462" y2="60" stroke="var(--ce-success)" stroke-width="1.8" marker-end="url(#mp-arrow-success)" />
 
         {/* Remote Git Origin */}
-        <rect x="468" y="18" width="276" height="114" rx="12" fill="var(--ce-accent-soft)" stroke="var(--ce-accent)" stroke-width="1.8" />
-        <text x="484" y="40" font-size="10.5" font-weight="700" fill="var(--ce-accent)" font-family="var(--font-mono)">REMOTE GIT ORIGIN</text>
-        <text x="484" y="62" font-size="13" font-weight="700" fill="var(--ce-ink)">Shared Main + Atomic Ref Leases</text>
-        <text x="484" y="82" font-size="11" fill="var(--ce-body)">• refs/heads/main (goals + trailers)</text>
-        <text x="484" y="99" font-size="11" fill="var(--ce-body)">• refs/leases/&lt;goal&gt; (CAS push + TTL)</text>
-        <text x="484" y="116" font-size="11" fill="var(--ce-body)">• Deduplicated issue status comments</text>
+        <rect x="464" y="18" width="280" height="114" rx="12" fill="var(--ce-accent-soft)" stroke="var(--ce-accent)" stroke-width="1.8" />
+        <text x="480" y="40" font-size="10.5" font-weight="700" fill="var(--ce-accent)" font-family="var(--font-mono)">REMOTE GIT ORIGIN</text>
+        <text x="480" y="62" font-size="13" font-weight="700" fill="var(--ce-ink)">Shared Main + Atomic Ref Leases</text>
+        <text x="480" y="82" font-size="11" fill="var(--ce-body)">• refs/heads/main (goals + trailers)</text>
+        <text x="480" y="99" font-size="11" fill="var(--ce-body)">• refs/leases/&lt;goal&gt; (CAS push + TTL)</text>
+        <text x="480" y="116" font-size="11" fill="var(--ce-body)">• Deduplicated status callbacks</text>
 
         {/* Bottom Machines */}
         <rect x="16" y="208" width="332" height="136" rx="12" fill="var(--ce-page)" stroke="var(--ce-success-border)" stroke-width="1.6" />

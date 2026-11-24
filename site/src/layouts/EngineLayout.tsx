@@ -39,7 +39,7 @@ export const ENGINE_CHAPTERS = [
     fullTitle: "Ambition, Self-Improvement & Human Steering",
     shortLabel: "4. Ambition",
     summary:
-      "Keep ambitious work moving without babysitting via non-blocking approval queues, a read-only planner guided by an ambition document, recurring failure self-improvement, and metric-gated experiments.",
+      "Unify complicated requirements into one pipeline—Intent → Just-in-Time Decomposition → Tiered Admission (auto vs. human-gated) → Verified Execution—paired with non-blocking approval parking, recurring-failure repairs, and metric-gated experiments.",
   },
   {
     href: "/engine/multiplayer-coordination",
@@ -48,7 +48,7 @@ export const ENGINE_CHAPTERS = [
     fullTitle: "Multiplayer & Multi-Machine Coordination",
     shortLabel: "5. Multiplayer",
     summary:
-      "Share an engine across teammates and machines with issue-to-PR intake, bidirectional remote sync, atomic remote Git ref leases, and landing-time trailer deduplication.",
+      "Share an engine across teammates and machines with pluggable admission transports, bidirectional 3-way remote sync, atomic remote Git ref leases, and landing-time trailer deduplication.",
   },
 ] as const;
 
